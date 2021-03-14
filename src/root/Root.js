@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Router from "../routing/Router";
 
 const Root = () => {
   return (
     <>
-      <h1>hello</h1>
+      <Router />
     </>
   );
 };
