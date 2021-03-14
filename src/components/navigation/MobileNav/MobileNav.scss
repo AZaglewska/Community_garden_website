@@ -1,0 +1,112 @@
+@import "../../../scss/main.scss";
+
+.mobile-nav {
+  background-color: map-get($colors, navbar);
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+  height: calc(100vh - 7.9rem);
+  width: 100%;
+  animation: show 0.5s ease-in-out forwards;
+  transition: 0.65s;
+  font-family: $font-nav;
+  padding: 20px 0 0;
+  font-size: map-get($font-sizes, xl);
+  margin-top: 129px;
+  overflow-y: scroll;
+  top: 0;
+  @media (min-width: 1151px) {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    font-size: map-get($font-sizes, m);
+  }
+
+  @media (max-width: 361px) {
+    font-size: map-get($font-sizes, s);
+  }
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__link {
+    padding: 20px 16px;
+    text-decoration: none;
+    color:  map-get($font-colors, nav-color);
+    animation: zoomIn 0.8s;
+  }
+  &__dropdown {
+    width: 100%;
+    text-align: center;
+    &:hover {
+      .mobile-nav__dropdown-content {
+        display: block;
+        animation: show 0.5s ease forwards;
+      }
+    }
+  }
+
+  &__dropbtn {
+    border: none;
+    outline: none;
+    color: map-get($font-colors, nav-color);
+    padding: 14px 16px;
+    background-color: inherit;
+    margin: 0;
+    text-align: center;
+    animation: zoomIn 0.8s;
+    margin: 10px;
+    font-size: inherit;
+  }
+
+  &__dropdown-content {
+    display: none;
+    font-size: 35px;
+    @media (max-width: 767px) {
+      font-size: 17px;
+    }
+    @media (max-width: 361px) {
+      font-size: 14px;
+    }
+  }
+
+  &__content-link {
+    color:  map-get($font-colors, nav-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: 1px solid map-get($colors, navbar-border);
+    transition: all 0.5s ease-in-out;
+    transition-duration: 0.5s;
+    text-align: center;
+
+    &:hover {
+      background-color: map-get($colors, navbar-hover);
+    }
+  }
+
+  &__logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid  map-get($colors, navbar-hover);
+  }
+  &__logo-pzd {
+    width: 80px;
+    margin: 10px 0;
+    border-radius: 10%;
+
+    @media (max-width: 410px) {
+      width: 60px;
+    }
+  }
+}
+

@@ -1,0 +1,121 @@
+@import "../../../scss/main.scss";
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 130px;
+  width: 100%;
+  background-color:  map-get($colors, navbar);
+  position: fixed;
+  z-index: 999;
+  padding: 0 30px;
+  top: 0;
+  &__item {
+    display: flex;
+  }
+
+  &__logo {
+    width: 206px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    @media (max-width: 350px) {
+      width: 157px;
+    }
+  }
+}
+
+.hamburgerMenuIcon {
+  cursor: pointer;
+  
+  @media (min-width: 1151px) {
+    display: none;
+  }
+}
+
+.nav {
+  // background-color: map-get($colors, navbar);
+  @media (max-width: 1151px) {
+    display: none;
+  }
+
+  &__dropdown {
+    display: inline-block;
+    
+    
+  }
+
+  &__dropbtn {
+    background-color: transparent;
+    padding-right: 6px;
+    padding-left: 15px;
+    font-size: map-get($font-sizes, s);
+    border: none;
+    text-transform: uppercase;
+    color: map-get($font-colors, nav-color);
+    font-family: $font-nav;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    margin: 53px 0;
+    transition: all 0.5s ease;
+    transition-duration: 0.5s;
+  }
+
+  &__content {
+    display: none;
+    position: absolute;
+    background-color: map-get($colors, navbar);
+    min-width: 160px;
+    list-style: none;
+    text-align: center;
+  }
+  &__content-link {
+    padding: 15px 16px;
+    text-decoration: none;
+    display: block;
+    color: map-get($font-colors, nav-color);
+    font-family: $font-nav;
+    font-size: map-get($font-sizes, s);
+    font-weight: 600;
+    border: 1px solid map-get($colors, navbar-border);
+
+    &:hover {
+      background-color: map-get($colors, navbar-hover);
+      transition: all 0.5s ease;
+      transition-duration: 0.5s;
+      color: map-get($font-colors, nav-hover);
+    }
+  }
+}
+
+.nav-arrow-down {
+  &:after {
+    content: "";
+    background-image: url("../../../assets/Icons/down-arrow.svg");
+    @include icon-after;
+  }
+}
+
+.nav__dropdown {
+  &:hover {
+    .nav__content {
+      display: block;
+      animation: show 0.5s ease forwards;
+    }
+    .nav__dropbtn {
+      color: map-get($font-colors, nav-hover);
+      cursor: pointer;
+    }
+    .nav-arrow-up {
+      &:after {
+        content: "";
+        background-image: url("../../../assets/Icons/up-arrow.svg");
+        @include icon-after;
+      }
+    }
+  }
+}
+
