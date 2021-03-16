@@ -5,9 +5,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
 
+//fonts:
+
 $font-title: "Rubik", sans-serif;
 $font-base: "Open Sans", sans-serif;
 $font-alt: "Source Sans Pro", sans-serif;
 $font-nav: "Montserrat", sans-serif;
 $article-title: "Rubik", sans-serif;
 $article-subtitle: "Raleway", sans-serif;
+
+//fontSizes:
+
+$font-sizes: (
+  xs: 10px,
+  s: 20px,
+  m:30px,
+  l: 40px,
+  xl: 50px,
+  xxl: 60px,
+);
+
