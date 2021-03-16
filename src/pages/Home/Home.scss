@@ -8,18 +8,7 @@
 
   &__title {
     @include article-title;
-
-    @media (max-width: 450px) {
-      font-size: 35px;
-      margin: auto;
-      text-align: center;
-     
-    }
-
-    @media (max-width: 450px) {
-      font-size: 30px;
-    }
-    span {
+    span { 
       display: block;
     }
   }
