@@ -1,4 +1,5 @@
 import React from "react";
+import HomeArticles from "../HomeArticles/HomeArticles";
 import "./Home.scss";
 import frontImage from "../../assets/Images/pexels-hannah-smid-3914608.jpg";
 
@@ -25,6 +26,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <HomeArticles />
     </>
   );
 };
