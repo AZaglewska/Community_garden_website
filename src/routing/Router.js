@@ -14,17 +14,18 @@ import Contact from "../pages/Contact/Contact";
 const Router = () => {
   return (
     <BrowserRouter>
-      <MainTemplate />
-      <Switch>
-        <Route exact path={routes.home} component={Home} />
-        <Route path={routes.articles} component={Articles} />
-        <Route path={routes.fullArticle} component={FullArticle} />
-        <Route path={routes.gallery} component={GalleryManager} />
-        <Route path={routes.gallery1} component={GalleryOne} />
-        <Route path={routes.gallery2} component={GallerySecond} />
-        <Route path={routes.regulations} component={Regulations} />
-        <Route path={routes.contact} component={Contact} />
-      </Switch>
+      <MainTemplate>
+        <Switch>
+          <Route exact path={routes.home} component={Home} />
+          <Route path={routes.articles} component={Articles} />
+          <Route path={routes.fullArticle} component={FullArticle} />
+          <Route path={routes.gallery} component={GalleryManager} />
+          <Route path={routes.gallery1} component={GalleryOne} />
+          <Route path={routes.gallery2} component={GallerySecond} />
+          <Route path={routes.regulations} component={Regulations} />
+          <Route path={routes.contact} component={Contact} />
+        </Switch>
+      </MainTemplate>
     </BrowserRouter>
   );
 };
