@@ -1,0 +1,107 @@
+@import "../../../scss/main.scss";
+
+.footer {
+  background-color: #f0f0d3c5;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @media (max-width: 690px) {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+  &__logo-pzd {
+    width: 90%;
+    border-radius: 10%;
+    @media (max-width: 850px) {
+      width: 60%;
+    }
+    @media (max-width: 690px) {
+      margin-left: 71px;
+      width: 30%;
+    }
+  }
+
+  &__main-logo {
+    width: 100%;
+    @media (max-width: 690px) {
+      margin-left: 40px;
+      margin-bottom: -20px;
+      width: 70%;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5px;
+  }
+
+  &__elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    font-family: $font-alt;
+    color: rgba(27, 32, 27, 0.432);
+    margin-top: 10px;
+    align-self: center;
+    font-size: 25px;
+    @media (max-width: 815px) {
+      font-size: 18px;
+    }
+    @media (max-width: 690px) {
+      display: none;
+    }
+    span {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  &__address {
+    font-family: $font-alt;
+    color: rgba(39, 48, 39, 0.589);
+    margin-top: 10px;
+    font-size: 22px;
+
+    @media (max-width: 815px) {
+      font-size: 18px;
+    }
+    @media (max-width: 690px) {
+      font-size: 25px;
+    }
+
+    @media (max-width: 268px) {
+      font-size: 16px;
+    }
+    span {
+      display: block;
+    }
+  }
+
+  &__details {
+    font-family: $font-alt;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+    @media (max-width: 690px) {
+      margin-left: 80px;
+    }
+  }
+  &__logo {
+    width: 80px;
+    height: 60px;
+    margin-top: -10px;
+
+    @media (max-width: 690px) {
+      margin-left: 20px;
+      width: 30%;
+    }
+  }
+}
