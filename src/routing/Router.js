@@ -9,6 +9,7 @@ import GalleryManager from "../pages/Gallery/GalleryManager";
 import GalleryOne from "../pages/Gallery/GalleryOne";
 import GallerySecond from "../pages/Gallery/GallerySecond";
 import Regulations from "../pages/Regulations/Regulations";
+import InformationManager from "../pages/Information/InformationManager";
 import Contact from "../pages/Contact/Contact";
 
 const Router = () => {
@@ -23,6 +24,7 @@ const Router = () => {
           <Route path={routes.gallery1} component={GalleryOne} />
           <Route path={routes.gallery2} component={GallerySecond} />
           <Route path={routes.regulations} component={Regulations} />
+          <Route path={routes.information} component={InformationManager} />
           <Route path={routes.contact} component={Contact} />
         </Switch>
       </MainTemplate>
