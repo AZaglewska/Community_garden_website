@@ -1,0 +1,50 @@
+@import "../../../scss/main.scss";
+
+.organization-element {
+  background: url("https://cdn.pixabay.com/photo/2017/05/23/05/33/flower-2336287_1280.jpg")
+    no-repeat;
+  background-size: cover;
+  background-position: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-size: 100%;
+  //   margin-top: -50px;
+
+  &__wrapper {
+    background-color: map-get($colors, article-wrapper);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 90%;
+    margin: 40px 0;
+    padding: 30px 0;
+  }
+  &__image {
+    @include article-image;
+  }
+
+  &__title {
+    @include article-subtitle;
+    margin-bottom: 20px;
+  }
+  &__subtitle {
+    color: map-get($font-colors, paragraph);
+    text-transform: uppercase;
+    font-family: $font-alt;
+  }
+  &__content {
+    width: 90%;
+  }
+
+  &__paragraph {
+    @include paragraph;
+  }
+
+  &__text {
+    @include article-text;
+    margin-left: 10px;
+  }
+}
