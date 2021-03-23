@@ -8,8 +8,10 @@ import FullArticle from "../pages/FullArticle/FullArticle";
 import GalleryManager from "../pages/Gallery/GalleryManager";
 import GalleryOne from "../pages/Gallery/GalleryOne";
 import GallerySecond from "../pages/Gallery/GallerySecond";
-import Regulations from "../pages/Regulations/Regulations";
-import InformationManager from "../pages/Information/InformationManager";
+import Regulations from "../pages/InformationPages/RegulationsPages/Regulations";
+import OrganizationManager from "../pages/InformationPages/OrganizationPages/OrganizationManager";
+import OrganizationElement from "../pages/InformationPages/OrganizationPages/OrganizationElement";
+import DocumentManager from "../pages/Document/DocumentManager";
 import Contact from "../pages/Contact/Contact";
 
 const Router = () => {
@@ -24,7 +26,15 @@ const Router = () => {
           <Route path={routes.gallery1} component={GalleryOne} />
           <Route path={routes.gallery2} component={GallerySecond} />
           <Route path={routes.regulations} component={Regulations} />
-          <Route path={routes.information} component={InformationManager} />
+          <Route
+            path={routes.organizationManager}
+            component={OrganizationManager}
+          />
+          <Route
+            path={routes.organizationElement}
+            component={OrganizationElement}
+          />
+          <Route path={routes.documentManager} component={DocumentManager} />
           <Route path={routes.contact} component={Contact} />
         </Switch>
       </MainTemplate>
