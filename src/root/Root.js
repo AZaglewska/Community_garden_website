@@ -7,6 +7,31 @@ const Root = () => {
   const [homeArticles, setHomeArticles] = useState([]);
   const [articles, setArticles] = useState([]);
   const [infoArticles, setInfoArticles] = useState([]);
+  const [pdfData, setPdfData] = useState([]);
+
+  const getPdfFile = (pdfDatas) => {
+    let mappedPdfs = pdfDatas.map((pdfData) => {
+      const { id } = pdfData.sys;
+
+      const pdfLink = pdfData.fields.pdfFile.fields.file.url;
+      const pdfName = pdfData.fields.pdfName;
+
+      const pdf = { id, pdfName, pdfLink };
+      return pdf;
+    });
+    setPdfData(mappedPdfs);
+  };
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "rodPdf",
+      })
+      .then((response) => {
+        getPdfFile(response.items);
+        console.log(response.items);
+      });
+  }, []);
 
   const getInfoData = (InfoDataArticles) => {
     let mappedInfoArticles = InfoDataArticles.map((InfoDataArticle) => {
@@ -123,7 +148,7 @@ const Root = () => {
   return (
     <>
       <CommunityGardenContext.Provider
-        value={{ homeArticles, articles, infoArticles }}
+        value={{ homeArticles, articles, infoArticles, pdfData }}
       >
         <Router />
       </CommunityGardenContext.Provider>
