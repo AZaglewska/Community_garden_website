@@ -15,8 +15,9 @@ const Root = () => {
 
       const pdfLink = pdfData.fields.pdfFile.fields.file.url;
       const pdfName = pdfData.fields.pdfName;
+      const pdfIcon = pdfData.fields.pdfIcon.fields.file.url;
 
-      const pdf = { id, pdfName, pdfLink };
+      const pdf = { id, pdfName, pdfLink, pdfIcon};
       return pdf;
     });
     setPdfData(mappedPdfs);
