@@ -1,0 +1,70 @@
+@import "../../scss/main.scss";
+
+.document {
+  @include information-container;
+
+  &__title {
+    @include article-title;
+  }
+  &__wrapper {
+    @include information-wrapper;
+  }
+  &__image-wrapper {
+    @include information-image-wrapper;
+  }
+
+  &__image {
+    @include information-image;
+  }
+  &__list {
+    @include information-list;
+  }
+  &__element {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 10px;
+    @media (max-width: 748px) {
+      padding-right: 5px;
+    }
+  }
+
+  &__element-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    @media (max-width: 748px) {
+      margin-left: 20px;
+    }
+  }
+
+  &__element-name {
+    font-family: $font-alt;
+    font-size: map-get($font-sizes, ss);
+    color: map-get($article-colors, art-text);
+    @media (max-width: 450px) {
+      font-size: map-get($font-sizes, s);
+    }
+
+    @media (max-width: 320px) {
+      font-size: 16px;
+    }
+  }
+  &__element-icon {
+    @include information-element-icon;
+    margin-right: 10px;
+  }
+  &__element-link {
+    @include information-element-link;
+    font-size: map-get($font-sizes, ss);
+    border: 1px solid map-get($article-colors, art-text);
+    padding: 4px 13px;
+    border-radius: 10px;
+
+    &:hover {
+      border-color: map-get($font-colors, hover-effect);
+    }
+  }
+}
