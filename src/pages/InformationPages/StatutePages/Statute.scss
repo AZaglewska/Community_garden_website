@@ -1,0 +1,39 @@
+@import "../../../scss/main.scss";
+
+.statute {
+  @include information-container;
+
+  &__title {
+    @include article-title;
+  }
+
+  &__wrapper {
+    @include information-wrapper;
+    width: 70%;
+  }
+
+  &__list {
+    list-style: none;
+  }
+  &__element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 200px;
+  }
+
+  &__file {
+    @include information-element-link;
+    font-size: map-get($font-sizes, ss);
+    border: 1px solid map-get($article-colors, art-text);
+    padding: 4px 13px;
+    border-radius: 10px;
+
+    &:hover {
+      border-color: map-get($font-colors, hover-effect);
+    }
+  }
+}
