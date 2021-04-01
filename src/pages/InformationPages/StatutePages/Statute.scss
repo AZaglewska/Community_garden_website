@@ -9,11 +9,12 @@
 
   &__wrapper {
     @include information-wrapper;
-    width: 70%;
+    align-items: center;
   }
 
   &__list {
     list-style: none;
+    flex: 1;
   }
   &__element {
     display: flex;
@@ -23,6 +24,10 @@
 
   &__icon {
     width: 200px;
+  }
+
+  &__subtitle {
+    @include paragraph;
   }
 
   &__file {
@@ -35,5 +40,38 @@
     &:hover {
       border-color: map-get($font-colors, hover-effect);
     }
+  }
+}
+
+.prices {
+  flex: 1;
+  &__title {
+    @include paragraph;
+  }
+
+  &__list {
+    list-style: none;
+    font-size: map-get($font-sizes, s);
+    font-family: $font-alt;
+    color: map-get($article-colors, art-text);
+  }
+
+  &__elements {
+    text-align: center;
+  }
+  &__subtitle {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  &__text {
+    color: map-get($font-colors, paragraph);
+    font-size: map-get($font-sizes, ss);
+    text-align: center;
+  }
+
+  span {
+    text-decoration: underline;
+    margin-right: 15px;
   }
 }
