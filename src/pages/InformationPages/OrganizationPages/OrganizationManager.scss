@@ -1,63 +1,36 @@
 @import "../../../scss/main.scss";
 
 .organization {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+  @include information-container;
   &__title {
     @include article-title;
   }
+  &__link {
+    @include link;
+  }
+
   &__wrapper {
-    display: flex;
-    justify-content: space-evenly;
-    width: 90%;
-    border-radius: 10px;
-    padding: 50px 0;
-    margin: 30px 0;
-    background-color: map-get($colors, article-wrapper);
-    @media (max-width: 748px) {
-      flex-direction: column;
-      align-items: center;
-    }
+    @include information-wrapper;
+  }
+
+  &__image-wrapper {
+    @include information-image-wrapper;
   }
 
   &__image {
-    width: 200px;
-    @media (max-width: 748px) {
-      margin-bottom: 50px;
-    }
-
-    @media (max-width: 450px) {
-      width: 150px;
-    }
+    @include information-image;
+    width: 50%;
   }
   &__list {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
+    @include information-list;
   }
   &__element {
-    margin-bottom: 20px;
+    @include information-element;
   }
   &__element-link {
-    display: flex;
-    text-decoration: none;
-    align-items: center;
-    font-family: $font-alt;
-    font-size: map-get($font-sizes, m);
-    color: map-get($article-colors, art-text);
-    transition: 0.5s ease;
-    &:hover {
-      color: map-get($font-colors, hover-effect);
-    }
-    @media (max-width: 450px) {
-      font-size: map-get($font-sizes, s);
-    }
+    @include information-element-link;
   }
   &__element-image {
-    width: 35px;
-    margin-right: 15px;
+    @include information-element-icon;
   }
 }

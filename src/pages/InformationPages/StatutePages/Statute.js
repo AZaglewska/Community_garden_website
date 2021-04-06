@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import CommunityGardenContext from "../../../context/context";
+import { Link } from "react-router-dom";
+import { routes } from "../../../routes";
 import "./Statute.scss";
 
 const Statute = () => {
@@ -11,6 +13,9 @@ const Statute = () => {
     <>
       <div className="statute">
         <h1 className="statute__title">Regulamin i Opłaty</h1>
+        <Link to={routes.informationManager} className="statute__link">
+          Powrót do informacji
+        </Link>
         <div className="statute__wrapper">
           <ul className="statute__list">
             {statuteData.map((statuteDataElement) => {
@@ -58,16 +63,18 @@ const Statute = () => {
               <h4 className="prices__subtitle">
                 Obliczenie rocznej opłaty za działkę:
               </h4>
-              <li>
+              <li className="prices__elements">
                 <span>Opłata ogrodowa:</span> 0,90pln za m<sup>2</sup>
               </li>
-              <li>
+              <li className="prices__elements">
                 <span>Składka członkowska:</span> 6,0 pln
               </li>
-              <li>
-                <span>Energia elektryczna:</span> 0,60 pln x zużycie w kWh*
+              <li className="prices__elements">
+                <span>Energia elektryczna:</span> 0,60 pln x (zużycie w kWh)*
               </li>
-              <li>*zgodnie ze wskazaniem licznika</li>
+              <li className="prices__elements prices__smaller-text">
+                *zgodnie ze wskazaniem licznika
+              </li>
             </ul>
           </div>
         </div>

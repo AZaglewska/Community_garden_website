@@ -30,6 +30,10 @@
     @include article-subtitle;
     margin-bottom: 20px;
   }
+
+  &__link {
+    @include link;
+  }
   &__subtitle {
     color: map-get($font-colors, paragraph);
     text-transform: uppercase;

@@ -1,5 +1,7 @@
 import React from "react";
 import "./OrganizationElement.scss";
+import { Link } from "react-router-dom";
+import { routes } from "../../../routes";
 import * as Markdown from "react-markdown";
 
 const OrganizationElement = (props) => {
@@ -21,6 +23,12 @@ const OrganizationElement = (props) => {
         <div className="organization-element__wrapper">
           <img className="organization-element__image" src={infoImage} />
           <h1 className="organization-element__title">{infoTitle}</h1>
+          <Link
+            to={routes.organizationManager}
+            className="organization-element__link"
+          >
+            Powrót do organizacji działki
+          </Link>
           <h3 className="organization-element__subtitle">Regulamin Rod:</h3>
           <div className="organization-element__content">
             <h4 className="organization-element__paragraph">

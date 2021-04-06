@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import CommunityGardenContext from "../../../context/context";
 import "./OrganizationManager.scss";
 import { Link } from "react-router-dom";
+import { routes } from "../../../routes";
 import GardenIcon from "../../../assets/Icons/gardening.svg";
 
 const OrganizationManager = () => {
@@ -13,8 +14,13 @@ const OrganizationManager = () => {
     <>
       <div className="organization">
         <h1 className="organization__title">Organizacja działki</h1>
+        <Link to={routes.informationManager} className="organization__link">
+          Powrót do informacji
+        </Link>
         <div className="organization__wrapper">
-          <img className="organization__image" src={GardenIcon} />
+          <div className="organization__image-wrapper">
+            <img className="organization__image" src={GardenIcon} />
+          </div>
           <ul className="organization__list">
             {infoArticles.map((infoArticle) => {
               const { id, infoTitle, infoImage } = infoArticle;

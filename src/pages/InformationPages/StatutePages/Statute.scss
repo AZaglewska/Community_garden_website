@@ -7,6 +7,9 @@
     @include article-title;
   }
 
+  &__link {
+    @include link;
+  }
   &__wrapper {
     @include information-wrapper;
     align-items: center;
@@ -15,6 +18,7 @@
   &__list {
     list-style: none;
     flex: 1;
+    width: 90%;
   }
   &__element {
     display: flex;
@@ -28,6 +32,12 @@
 
   &__subtitle {
     @include paragraph;
+    @media (max-width: 450px) {
+      font-size: map-get($font-sizes, m);
+    }
+    @media (max-width: 360px) {
+      font-size: map-get($font-sizes, ss);
+    }
   }
 
   &__file {
@@ -45,8 +55,15 @@
 
 .prices {
   flex: 1;
+  width: 90%;
   &__title {
     @include paragraph;
+    @media (max-width: 450px) {
+      font-size: map-get($font-sizes, m);
+    }
+    @media (max-width: 360px) {
+      font-size: map-get($font-sizes, ss);
+    }
   }
 
   &__list {
@@ -54,6 +71,7 @@
     font-size: map-get($font-sizes, s);
     font-family: $font-alt;
     color: map-get($article-colors, art-text);
+    width: 98%;
   }
 
   &__elements {
@@ -72,6 +90,11 @@
 
   span {
     text-decoration: underline;
-    margin-right: 15px;
+    margin-right: 8px;
+  }
+
+  &__smaller-text {
+    font-size: 15px;
+    margin-top: 8px;
   }
 }
