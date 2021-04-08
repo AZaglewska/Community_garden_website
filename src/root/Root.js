@@ -8,16 +8,94 @@ const Root = () => {
   const [articles, setArticles] = useState([]);
   const [infoArticles, setInfoArticles] = useState([]);
   const [pdfData, setPdfData] = useState([]);
+  const [statuteData, setStatuteData] = useState([]);
+  const [picturesFlowers, setPicturesFlowers] = useState([]);
+  const [picturesHarvest, setPicturesHarvest] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const getPdfFile = (pdfDatas) => {
-    let mappedPdfs = pdfDatas.map((pdfData) => {
-      const { id } = pdfData.sys;
+  const getPicturesHarvestData = (dataPictures) => {
+    let pictures = dataPictures.map((dataPicture) => {
+      const { id } = dataPicture.sys;
 
-      const pdfLink = pdfData.fields.pdfFile.fields.file.url;
-      const pdfName = pdfData.fields.pdfName;
-      const pdfIcon = pdfData.fields.pdfIcon.fields.file.url;
+      const image = dataPicture.fields.harvestPicture[0].fields.file.url;
 
-      const pdf = { id, pdfName, pdfLink, pdfIcon};
+      const picture = { id, image };
+      return picture;
+    });
+
+    setPicturesHarvest(pictures);
+  };
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "rodPicturesHarvest",
+      })
+      .then((response) => {
+        getPicturesHarvestData(response.items);
+        console.log(response.items);
+      });
+  }, []);
+
+  const getPicturesFlowersData = (dataPictures) => {
+    let pictures = dataPictures.map((dataPicture) => {
+      const { id } = dataPicture.sys;
+
+      const image = dataPicture.fields.flowerPicture[0].fields.file.url;
+
+      const picture = { id, image };
+      return picture;
+    });
+
+    setPicturesFlowers(pictures);
+  };
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "rodPicturesFlowers",
+      })
+      .then((response) => {
+        setLoading(true);
+        getPicturesFlowersData(response.items);
+        console.log(response.items);
+      });
+  }, []);
+
+  const getStatuteFile = (statuteDataElements) => {
+    let mappedStatuteData = statuteDataElements.map((statuteDataElement) => {
+      const { id } = statuteDataElement.sys;
+
+      const statuteFile = statuteDataElement.fields.statuteFile.fields.file.url;
+      const statuteName = statuteDataElement.fields.statuteName;
+      const statuteIcon = statuteDataElement.fields.statuteIcon.fields.file.url;
+
+      const statute = { id, statuteFile, statuteName, statuteIcon };
+      return statute;
+    });
+    setStatuteData(mappedStatuteData);
+  };
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "rodStatute",
+      })
+      .then((response) => {
+        getStatuteFile(response.items);
+        console.log(response.items);
+      });
+  }, []);
+
+  const getPdfFile = (pdfDataElements) => {
+    let mappedPdfs = pdfDataElements.map((pdfDataElement) => {
+      const { id } = pdfDataElement.sys;
+
+      const pdfLink = pdfDataElement.fields.pdfFile.fields.file.url;
+      const pdfName = pdfDataElement.fields.pdfName;
+      const pdfIcon = pdfDataElement.fields.pdfIcon.fields.file.url;
+
+      const pdf = { id, pdfName, pdfLink, pdfIcon };
       return pdf;
     });
     setPdfData(mappedPdfs);
@@ -149,7 +227,16 @@ const Root = () => {
   return (
     <>
       <CommunityGardenContext.Provider
-        value={{ homeArticles, articles, infoArticles, pdfData }}
+        value={{
+          homeArticles,
+          articles,
+          infoArticles,
+          pdfData,
+          statuteData,
+          picturesFlowers,
+          picturesHarvest,
+          loading,
+        }}
       >
         <Router />
       </CommunityGardenContext.Provider>
