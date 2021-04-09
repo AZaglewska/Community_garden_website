@@ -12,6 +12,8 @@ const Root = () => {
   const [picturesFlowers, setPicturesFlowers] = useState([]);
   const [picturesHarvest, setPicturesHarvest] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [articleLimit, setArticleLimit] = useState(4);
+  const [articlesTotal, setArticlesTotal] = useState(0);
 
   const getPicturesHarvestData = (dataPictures) => {
     let pictures = dataPictures.map((dataPicture) => {
@@ -217,12 +219,22 @@ const Root = () => {
     client
       .getEntries({
         content_type: "rodArticles",
+        limit: articleLimit,
       })
 
       .then((response) => {
         getAllArticlesData(response.items);
+        setArticlesTotal(response.total);
       });
-  }, []);
+  }, [articleLimit]);
+
+  const getMoreArticles = () => {
+    setArticleLimit(articleLimit + 4);
+  };
+
+  const getLessArticles = () => {
+    setArticleLimit(articleLimit - 4);
+  };
 
   return (
     <>
@@ -230,6 +242,9 @@ const Root = () => {
         value={{
           homeArticles,
           articles,
+          getMoreArticles,
+          getLessArticles,
+          articlesTotal,
           infoArticles,
           pdfData,
           statuteData,
