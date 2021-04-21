@@ -1,0 +1,106 @@
+@import "../../../scss/main.scss";
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: map-get($colors, article-wrapper);
+  border-radius: $round-border;
+  width: 30%;
+  padding-bottom: 40px;
+  @media (max-width: 1151px) {
+    width: 60%;
+    margin-bottom: map-get($margin, xl);
+  }
+
+  @media (max-width: 800px) {
+    width: 70%;
+  }
+
+  @media (max-width: 540px) {
+    width: 80%;
+  }
+
+  @media (max-width: 450px) {
+    width: 90%;
+  }
+
+  &__title {
+    @include form-title;
+    color: map-get($font-colors, paragraph);
+    margin-bottom: map-get($margin, m);
+  }
+
+  &__input {
+    background-color: map-get($colors, article-wrapper);
+    @include border-shadow;
+    border-radius: $button-border;
+    opacity: 0.6;
+    width: 90%;
+    height: 55px;
+    margin: 15px 0;
+    outline: none;
+    border: none;
+    padding-left: 20px;
+    transition: 0.4s ease-in-out;
+
+    &:focus {
+      border: 2px solid map-get($form-colors, form-border);
+      -webkit-box-shadow: 0px 0px 2px 2px map-get($form-colors, form-border);
+      box-shadow: 0px 0px 2px 2px map-get($form-colors, form-border);
+    }
+    @media (max-width: 1151px) {
+      width: 60%;
+    }
+
+    @media (max-width: 800px) {
+      width: 70%;
+    }
+
+    @media (max-width: 450px) {
+      width: 80%;
+      height: 45px;
+    }
+  }
+  &__textarea {
+    height: 150px;
+    resize: none;
+    padding: 20px 0 0 10px;
+  }
+
+  &__error {
+    text-align: center;
+    color: map-get($form-colors, form-error);
+    font-family: $font-base;
+    font-size: 14px;
+    font-weight: 500;
+    height: 15px;
+  }
+
+  &__button {
+    @include article-button;
+    position: relative;
+    height: 60px;
+    &:hover {
+      background: rgba(22, 63, 20, 0.76);
+      color: #fff;
+    }
+  }
+
+  &__alert {
+    @include form-alert;
+  }
+
+  &__alert-error {
+    @include form-alert;
+    color: map-get($form-colors, form-error);
+    border: 2px dotted map-get($form-colors, form-error);
+  }
+
+  &__gif {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
