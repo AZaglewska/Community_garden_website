@@ -1,14 +1,13 @@
 @import "../../scss/main.scss";
 
 .home {
-  margin: 70px 0 20px ;
   display: flex;
   align-items: center;
-  flex-direction: column;   
+  flex-direction: column;
 
   &__title {
     @include article-title;
-    span { 
+    span {
       display: block;
     }
   }
@@ -18,38 +17,32 @@
     width: 80%;
 
     @media (max-width: 1026px) {
-    width: 90%;
+      width: 90%;
     }
   }
   &__elements {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
     @media (max-width: 1026px) {
       display: flex;
       flex-direction: column;
-       margin-top: 35px;
     }
-
   }
   &__text {
     @include article-text;
-    font-size: 30px;
-    color: rgb(92, 93, 93);
     flex: 3;
-    margin-right: 40px;
+    margin-right: map-get($font-sizes, xl);
     @media (max-width: 1026px) {
-     width: 95%;
-     margin: auto;
+      width: 95%;
+      margin: auto;
     }
     @media (max-width: 450px) {
-      font-size: 20px;
+      font-size: map-get($font-sizes, s);
       text-align: center;
-      width: 95%;
     }
-    @media (max-width: 300px) {
+
+    @media (max-width: 360px) {
       font-size: 18px;
-     
     }
   }
   &__image {
@@ -57,13 +50,12 @@
     flex: 1;
     width: 300px;
     height: 300px;
-    border-radius: 10px;
+    border-radius: $round-border;
     @media (max-width: 1026px) {
-    margin-top: 35px;
+      margin-top: 35px;
     }
     @media (max-width: 450px) {
       width: 65vw;
-     
     }
   }
 }
