@@ -2,11 +2,10 @@
 
 .article-container {
   @include background-styles;
+  background-image: url("../../assets/Images/BackgroundImages/flower-2336287.jpg");
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  padding-top: 70px;
 
   &__title {
     @include article-title;
@@ -15,12 +14,7 @@
     @include article-button;
     height: 60px;
     width: 100%;
-    margin: 50px 0 40px 0;
-
-    @media (max-width: 265px) {
-      height: auto;
-      width: 150px;
-    }
+    margin-bottom: map-get($font-sizes, xl);
     &:hover {
       background: rgba(255, 255, 255, 0.794);
     }
@@ -31,58 +25,36 @@
   list-style: none;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+
   @media (max-width: 1410px) {
     flex-direction: column;
     align-items: center;
   }
   &__list {
-    background-color: rgba(240, 240, 240, 0.863);
-    margin: 10px 20px 30px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    width: 80%;
-    border-radius: 10px;
+    @include article-container;
+    width: 90%;
+    margin: 20px 20px;
   }
 
   &__image {
-    height: 50px;
-    margin-top: 50px;
+    @include article-image;
   }
 
   &__title {
-    text-align: center;
     @include article-subtitle;
-    margin-top: 25px;
   }
 
   &__content {
     @include article-text;
-    margin-top: 30px;
-    padding: 0 25px 0 25px;
+    margin-top: map-get($font-sizes, m);
+    width: 90%;
   }
   &__button {
     @include article-button;
-    margin-top: 60px;
+    margin-top: map-get($font-sizes, xl);
   }
 
   &__date {
-    font-family: $font-alt;
-    align-self: flex-start;
-    color: #c8cacc;
-    padding-bottom: 20px;
-    font-size: 17px;
-    margin-top: 10px;
-
-    &:before {
-      content: "";
-      background-image: url("../../assets/Icons/time.svg");
-      @include icon-before;
-      height: 20px;
-      width: 15px;
-      background-size: 100%;
-    }
+    @include article-date;
   }
 }
