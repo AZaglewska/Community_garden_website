@@ -1,82 +1,27 @@
 @import "../../scss/main.scss";
 
 .articles-container {
-  background-image: url("../../assets/Images/BackgroundImages/flower-2342706.jpg");
-  background-position: center;
-  height: 100%;
-  background-size: cover;
+  @include background-styles;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-
-  @media (max-width: 415px) {
-    background: none;
-  }
+  justify-content: center;
+  margin-bottom: map-get($margin, xl);
   &__title {
     @include article-title;
-    margin: 80px 0 0 0;
-
-    @media (max-width: 318px) {
-      font-size: 30px;
-    }
-  }
-  &__button {
-    @include article-button;
-    height: 60px;
-    width: 600px;
-    margin-top: 30px;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.794);
-    }
   }
   &__link {
     @include link;
-
-    @media (max-width: 318px) {
-      font-size: 15px;
-    }
   }
 }
 
 .articles {
   list-style: none;
-  display: grid;
-  margin: auto;
-  grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 15px;
-  margin-top: 20px;
-
-  @media (max-width: 1180px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  width: 90%;
 
   &__list {
-    background-color: map-get($colors, article-wrapper);
-    margin: 10px 20px 30px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 500px;
-    width: 660px;
-    border-radius: 10px;
-
-    @media (max-width: 1420px) {
-      width: 550px;
-      height: auto;
-      margin-bottom: 25px;
-    }
-
-    @media (max-width: 1180px) {
-      width: 80vw;
-      height: auto;
-      margin: auto;
-      margin-bottom: 23px;
-    }
+    @include article-container;
+    margin: 40px 0;
   }
 
   &__image {
@@ -85,27 +30,15 @@
 
   &__title {
     @include article-subtitle;
-    margin-top: 25px;
-    @media (max-width: 422px) {
-      font-size: 24px;
-    }
   }
 
   &__content {
     @include article-text;
-    margin-top: 30px;
     width: 90%;
-    @media (max-width: 422px) {
-      font-size: 25px;
-    }
-
-    @media (max-width: 318px) {
-      font-size: 19px;
-    }
   }
   &__button {
     @include article-button;
-    margin-top: 40px;
+    margin-top: map-get($margin, xl);
   }
 
   &__date {
@@ -116,23 +49,23 @@
   &__info {
     font-family: $font-alt;
     text-align: center;
-    font-size: 20px;
+    font-size: map-get($font-sizes, s);
     font-weight: bold;
-    color: rgb(82, 80, 80);
-    border: 2px dashed rgb(82, 80, 80);
-    padding: 10px;
+    color: map-get($article-colors, art-text);
+    border: 2px dashed map-get($article-colors, art-text);
+    padding: 13px;
+    border-radius: $button-border;
 
-    @media (max-width: 318px) {
-      width: 150px;
+    @media (max-width: 360px) {
+      width: 250px;
     }
   }
 
   &__button {
     @include article-button;
     width: 300px;
-
-    @media (max-width: 318px) {
-      width: 150px;
+    @media (max-width: 360px) {
+      width: 250px;
     }
   }
 }
