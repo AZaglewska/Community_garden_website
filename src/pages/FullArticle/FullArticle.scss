@@ -1,0 +1,39 @@
+@import "../../scss/main.scss";
+
+.full-article {
+  @include background-styles;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: map-get($margin, xl);
+  &__title {
+    @include article-title;
+  }
+  &__link {
+    @include link;
+  }
+
+  &__wraper {
+    @include article-container;
+    width: 90%;
+  }
+
+  &__image {
+    @include article-image;
+  }
+
+  &__subtitle {
+    @include article-subtitle;
+  }
+
+  &__content {
+    @include article-text;
+    margin-top: 30px;
+    width: 90%;
+    font-weight: 400;
+  }
+
+  &__date {
+    @include article-date;
+  }
+}
