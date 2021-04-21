@@ -17,7 +17,7 @@ const GalleryManager = () => {
         </div>
         <div className="gallery-content">
           <div className="gallery-manager">
-            <Link to={routes.gallery1} className="gallery-manager__link">
+            <Link to={routes.galleryFlower} className="gallery-manager__link">
               <div className="gallery-manager__container">
                 <img src={Image1} alt="frontPicture1" />
               </div>
@@ -25,7 +25,7 @@ const GalleryManager = () => {
             </Link>
           </div>
           <div className="gallery-manager">
-            <Link to={routes.gallery2} className="gallery-manager__link">
+            <Link to={routes.galleryHarvest} className="gallery-manager__link">
               <div className="gallery-manager__container">
                 <img src={Image2} alt="frontPicture2" />
               </div>
