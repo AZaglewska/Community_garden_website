@@ -1,42 +1,45 @@
 @import "../../../scss/main.scss";
 
 .footer {
-  background-color: #f0f0d3c5;
+  background-color: map-get($colors, article-wrapper);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
 
-  @media (max-width: 690px) {
-    flex-direction: column;
-    padding-top: 20px;
-  }
-  &__logo-pzd {
-    width: 90%;
-    border-radius: 10%;
-    @media (max-width: 850px) {
-      width: 60%;
-    }
+  &__wrapper {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: inherit;
+
     @media (max-width: 690px) {
-      margin-left: 71px;
-      width: 30%;
+      flex-direction: column;
     }
+  }
+
+  &__image {
+    width: 17%;
+
+    @media (max-width: 690px) {
+      display: none;
+    }
+  }
+
+  &__button {
+    @include article-button;
   }
 
   &__main-logo {
-    width: 100%;
-    @media (max-width: 690px) {
-      margin-left: 40px;
-      margin-bottom: -20px;
-      width: 70%;
-    }
+    width: 250px;
   }
 
-  &__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 5px;
+  &__logo-pzd {
+    width: 60px;
+    border-radius: 10%;
+    margin-top: map-get($margin, s);
   }
 
   &__elements {
@@ -45,42 +48,18 @@
     align-items: center;
   }
 
-  &__title {
-    font-family: $font-alt;
-    color: rgba(27, 32, 27, 0.432);
-    margin-top: 10px;
-    align-self: center;
-    font-size: 25px;
-    @media (max-width: 815px) {
-      font-size: 18px;
-    }
-    @media (max-width: 690px) {
-      display: none;
-    }
-    span {
-      display: block;
-      text-align: center;
-    }
-  }
-
   &__address {
     font-family: $font-alt;
-    color: rgba(39, 48, 39, 0.589);
-    margin-top: 10px;
-    font-size: 22px;
+    color: map-get($colors, footer-font);
+    margin-top: map-get($margin, s);
+    font-size: map-get($font-sizes, m);
 
-    @media (max-width: 815px) {
-      font-size: 18px;
-    }
-    @media (max-width: 690px) {
-      font-size: 25px;
-    }
-
-    @media (max-width: 268px) {
-      font-size: 16px;
-    }
     span {
       display: block;
+    }
+
+    @media (max-width: 450px) {
+      font-size: map-get($font-sizes, s);
     }
   }
 
@@ -88,20 +67,21 @@
     font-family: $font-alt;
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    align-items: center;
+    border-top: 1px solid map-get($colors, footer-line);
+    width: inherit;
 
-    @media (max-width: 690px) {
-      margin-left: 80px;
+    p {
+      margin-top: map-get($margin, s);
     }
   }
   &__logo {
-    width: 80px;
+    width: 60px;
     height: 60px;
     margin-top: -10px;
-
-    @media (max-width: 690px) {
-      margin-left: 20px;
-      width: 30%;
-    }
   }
+}
+
+.image-rotate {
+  transform: rotate(-20deg);
 }
