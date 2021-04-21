@@ -4,8 +4,8 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes";
-import "./GalleryStyles.scss";
 import gif from "../../assets/Gif/Rolling-1s-81px.svg";
+import "./GalleryStyles.scss";
 
 const GalleryHarvest = () => {
   const context = useContext(CommunityGardenContext);
@@ -56,7 +56,7 @@ const GalleryHarvest = () => {
           </ul>
         ) : (
           <div className="gallery__gif-container">
-            <img src={gif} />
+            <img src={gif} alt="spinner" />
           </div>
         )}
       </div>
