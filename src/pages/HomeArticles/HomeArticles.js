@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import "./HomeArticles.scss";
 import CommunityGardenContext from "../../context/context";
+import * as Markdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes/index";
+import "./HomeArticles.scss";
 
 const HomeArticles = () => {
   const context = useContext(CommunityGardenContext);
@@ -17,7 +18,7 @@ const HomeArticles = () => {
             const {
               articleImage,
               articleTitle,
-              articleContent,
+              articleText,
               articleDate,
               id,
             } = article;
@@ -31,22 +32,22 @@ const HomeArticles = () => {
                 />
 
                 <h3 className="home-article__title">{articleTitle}</h3>
+                <Markdown
+                  source={
+                    articleText.length < 20
+                      ? articleText
+                      : `${articleText.substring(0, 200)}...`
+                  }
+                  className="home-article__content"
+                />
 
-                <p className="home-article__content">
-                  {articleContent[0].content[0].value.length < 20
-                    ? articleContent[0].content[0].value
-                    : `${articleContent[0].content[0].value.substring(
-                        0,
-                        150
-                      )}...`}
-                </p>
                 <Link
                   to={{
                     pathname: `/artykuł/${articleTitle.replace(/\s/g, "")}`,
                     state: {
                       image: articleImage,
                       title: articleTitle,
-                      content: articleContent,
+                      text: articleText,
                       date: articleDate,
                     },
                   }}
