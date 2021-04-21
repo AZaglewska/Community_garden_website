@@ -1,7 +1,7 @@
 import React from "react";
 import HomeArticles from "../HomeArticles/HomeArticles";
+import frontImage from "../../assets/Images/HomeImages/pexels-hannah-smid-3914608.jpg";
 import "./Home.scss";
-import frontImage from "../../assets/Images/pexels-hannah-smid-3914608.jpg";
 
 const Home = () => {
   return (
@@ -14,15 +14,14 @@ const Home = () => {
           <div className="home__elements">
             <p className="home__text">
               ROD Warszawianka przy ul. Piaseczyńskiej 60/66 na Mokotowie
-              istnieje od kilkudziesięciu lat.{" "}
-              <b>300 działek zajmuje powierzchnię ………………. </b>Ogródki Działkowe
-              Warszawianka położone są nieopodal pięknego Parku Arkadia i
-              zespołu pałacowego Królikarnia a także obiektów Klubu Sportowego
-              Warszawianka. Teren ogródków działkowych to miejsce różnorodnych
-              upraw oraz odpoczynku i rekreacji dla działkowców, ich rodzin i
-              przyjaciół, a także okolicznych mieszkańców.
+              istnieje od kilkudziesięciu lat. Ogródki Działkowe Warszawianka
+              położone są nieopodal pięknego Parku Arkadia i zespołu pałacowego
+              Królikarnia a także obiektów Klubu Sportowego Warszawianka. Teren
+              ogródków działkowych to miejsce różnorodnych upraw oraz odpoczynku
+              i rekreacji dla działkowców, ich rodzin i przyjaciół, a także
+              okolicznych mieszkańców.
             </p>
-            <img className="home__image" src={frontImage} alt="homeImage" />
+            <img className="home__image" src={frontImage} alt="flower" />
           </div>
         </div>
       </div>
