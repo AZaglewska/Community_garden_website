@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import CommunityGardenContext from "../../context/context";
-import GardenIcon from "../../assets/Icons/sprout.svg";
+import { Link } from "react-router-dom";
+import { routes } from "../../routes";
+import gardenIcon from "../../assets/Icons/sprout.svg";
 import "./DocumentManager.scss";
 
 const DocumentManager = () => {
@@ -11,9 +13,12 @@ const DocumentManager = () => {
   return (
     <div className="document">
       <h1 className="document__title">Dokumenty</h1>
+      <Link to={routes.home} className="document__home-link">
+        Powrót do strony głównej
+      </Link>
       <div className="document__wrapper">
         <div className="document__image-wrapper">
-          <img className="document__image" src={GardenIcon} />
+          <img className="document__image" src={gardenIcon} alt="garden icon" />
         </div>
         <ul className="document__list">
           {pdfData.map((pdfDataElement) => {
@@ -21,13 +26,18 @@ const DocumentManager = () => {
             return (
               <li key={id} className="document__element">
                 <div className="document__element-content">
-                  <img src={pdfIcon} className="document__element-icon" />
+                  <img
+                    src={pdfIcon}
+                    className="document__element-icon"
+                    alt="pdf icon"
+                  />
                   <p className="document__element-name">{pdfName}</p>
                 </div>
                 <a
                   href={pdfLink}
                   target="_blank"
                   className="document__element-link"
+                  rel="noreferrer"
                 >
                   .pdf
                 </a>
