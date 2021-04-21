@@ -2,9 +2,14 @@
 
 .document {
   @include information-container;
+  @include background-styles;
+  background-image: url("../../assets/Images/BackgroundImages/flower-2336287.jpg");
 
   &__title {
     @include article-title;
+  }
+  &__home-link {
+    @include link;
   }
   &__wrapper {
     @include information-wrapper;
@@ -18,26 +23,23 @@
   }
   &__list {
     @include information-list;
+    @media (max-width: 900px) {
+      margin-left: map-get($margin, m);
+    }
   }
   &__element {
-    margin-bottom: 10px;
+    margin-bottom: map-get($margin, s);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-right: 10px;
-    @media (max-width: 748px) {
-      padding-right: 5px;
-    }
   }
 
   &__element-content {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: map-get($margin, s);
     align-self: flex-start;
-    @media (max-width: 748px) {
-      margin-left: 20px;
-    }
   }
 
   &__element-name {
@@ -54,14 +56,14 @@
   }
   &__element-icon {
     @include information-element-icon;
-    margin-right: 10px;
+    margin-right: map-get($margin, s);
   }
   &__element-link {
     @include information-element-link;
     font-size: map-get($font-sizes, ss);
     border: 1px solid map-get($article-colors, art-text);
     padding: 4px 13px;
-    border-radius: 10px;
+    border-radius: $round-border;
 
     &:hover {
       border-color: map-get($font-colors, hover-effect);
