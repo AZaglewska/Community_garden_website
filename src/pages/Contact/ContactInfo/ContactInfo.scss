@@ -1,0 +1,87 @@
+@import "../../../scss/main.scss";
+
+.contact-info {
+  background-color: map-get($form-colors, form-contact);
+  border-radius: $round-border;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  padding-bottom: 40px;
+  @media (max-width: 1151px) {
+    width: 60%;
+  }
+
+  @media (max-width: 800px) {
+    width: 70%;
+  }
+
+  @media (max-width: 540px) {
+    width: 80%;
+  }
+
+  @media (max-width: 450px) {
+    width: 90%;
+  }
+
+  &__container {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__title {
+    @include form-title;
+  }
+  &__subtitle {
+    @include article-subtitle;
+    color: map-get($form-colors, form-text);
+    font-size: map-get($font-sizes, m);
+
+    @media (max-width: 450px) {
+      font-size: map-get($font-sizes, ss);
+    }
+  }
+
+  &__elements {
+    margin-top: map-get($margin, l);
+  }
+
+  &__wrapper {
+    display: flex;
+    padding-left: 10px;
+    margin-bottom: 20px;
+  }
+
+  &__icon {
+    width: 20px;
+    margin-right: 10px;
+  }
+
+  &__details {
+    font-family: $font-base;
+    color: map-get($form-colors, form-text);
+    font-size: map-get($font-sizes, s);
+    @media (max-width: 360px) {
+      font-size: 17px;
+    }
+
+    span {
+      display: block;
+    }
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 80px;
+    }
+  }
+}
+
+.bold-text {
+  font-weight: 600;
+  margin: 0 0 20px 10px;
+}
