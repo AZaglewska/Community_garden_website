@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import CommunityGardenContext from "../../context/context";
+import * as Markdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes";
 import "./Articles.scss";
@@ -7,7 +8,12 @@ import "./Articles.scss";
 const Articles = () => {
   const context = useContext(CommunityGardenContext);
 
-  const { articles, getMoreArticles, getLessArticles, articlesTotal } = context;
+  const {
+    articles,
+    getMoreArticles,
+    hideMoreArticles,
+    articlesTotal,
+  } = context;
 
   return (
     <>
@@ -16,14 +22,15 @@ const Articles = () => {
         <Link to={routes.home} className="articles-container__link">
           Powrót do strony głównej
         </Link>
+
         <ul key="allArticlesList" className="articles">
           {articles.map((article) => {
             const {
               id,
               articleImage,
               articleTitle,
-              articleContent,
               articleDate,
+              articleText,
             } = article;
 
             return (
@@ -33,25 +40,23 @@ const Articles = () => {
                   alt="articleImage"
                   className="articles__image"
                 />
-
                 <h3 className="articles__title">{articleTitle}</h3>
-
-                <p className="articles__content">
-                  {articleContent[0].content[0].value.length < 20
-                    ? articleContent[0].content[0].value
-                    : `${articleContent[0].content[0].value.substring(
-                        0,
-                        150
-                      )}...`}
-                </p>
+                <Markdown
+                  source={
+                    articleText.length < 20
+                      ? articleText
+                      : `${articleText.substring(0, 200)}...`
+                  }
+                  className="articles__content"
+                />
                 <Link
                   to={{
                     pathname: `/artykuł/${articleTitle.replace(/\s/g, "")}`,
                     state: {
                       image: articleImage,
                       title: articleTitle,
-                      content: articleContent,
                       date: articleDate,
+                      text: articleText,
                     },
                   }}
                 >
@@ -67,12 +72,17 @@ const Articles = () => {
         {articlesTotal === articles.length ? (
           <div className="articles-addons">
             <p className="articles-addons__info">Nie ma więcej artykułów</p>
-            <button
-              onClick={getLessArticles}
-              className="articles-addons__button"
-            >
-              Załaduj mniej artukułów
-            </button>
+
+            {articlesTotal === 2 ? (
+              ""
+            ) : (
+              <button
+                onClick={hideMoreArticles}
+                className="articles-addons__button"
+              >
+                Zwiń artykuły
+              </button>
+            )}
           </div>
         ) : (
           <button onClick={getMoreArticles} className="articles-addons__button">
