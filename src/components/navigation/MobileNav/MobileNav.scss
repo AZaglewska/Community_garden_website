@@ -23,11 +23,11 @@
     display: none;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 540px) {
     font-size: map-get($font-sizes, m);
   }
 
-  @media (max-width: 361px) {
+  @media (max-width: 360px) {
     font-size: map-get($font-sizes, s);
   }
 
@@ -41,7 +41,7 @@
   &__link {
     padding: 20px 16px;
     text-decoration: none;
-    color:  map-get($font-colors, nav-color);
+    color: map-get($font-colors, nav-color);
     animation: zoomIn 0.8s;
   }
   &__dropdown {
@@ -51,6 +51,21 @@
       .mobile-nav__dropdown-content {
         display: block;
         animation: show 0.5s ease forwards;
+      }
+      .arrow-up {
+        &:after {
+          content: "";
+          background-image: url("../../../assets/Icons/up-arrow.svg");
+          @include icon-after;
+          height: 15px;
+          width: 15px;
+          margin-left: 12px;
+          @media (max-width: 360px) {
+            height: 10px;
+            width: 10px;
+            margin-left: 8px;
+          }
+        }
       }
     }
   }
@@ -70,17 +85,17 @@
 
   &__dropdown-content {
     display: none;
-    font-size: 35px;
-    @media (max-width: 767px) {
-      font-size: 17px;
+    font-size: map-get($font-sizes, l);
+    @media (max-width: 540px) {
+      font-size: map-get($font-sizes, s);
     }
-    @media (max-width: 361px) {
-      font-size: 14px;
+    @media (max-width: 360px) {
+      font-size: 15px;
     }
   }
 
   &__content-link {
-    color:  map-get($font-colors, nav-color);
+    color: map-get($font-colors, nav-color);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -98,16 +113,31 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    border-top: 2px solid  map-get($colors, navbar-hover);
+    border-top: 2px solid map-get($colors, navbar-hover);
   }
   &__logo-pzd {
     width: 80px;
     margin: 10px 0;
     border-radius: 10%;
 
-    @media (max-width: 410px) {
+    @media (max-width: 450px) {
       width: 60px;
     }
   }
 }
 
+.arrow-down {
+  &:after {
+    content: "";
+    background-image: url("../../../assets/Icons/down-arrow.svg");
+    @include icon-after;
+    height: 15px;
+    width: 15px;
+    margin-left: 12px;
+    @media (max-width: 360px) {
+      height: 10px;
+      width: 10px;
+      margin-left: 8px;
+    }
+  }
+}
