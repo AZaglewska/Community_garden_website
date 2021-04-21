@@ -1,28 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
+import CommunityGardenContext from "../../../context/context";
 import { Link } from "react-router-dom";
 import { routes } from "../../../routes/";
-import DynamicImage from "../../DynamicImage/DynamicImage";
-import "./Navbar.scss";
 import HamburgerMenuIcon from "react-hamburger-menu";
 import MobileNav from "../MobileNav/MobileNav";
-import Logo from "../../../assets/Logo/MainLogo.svg";
+import DynamicImage from "../../DynamicImage/DynamicImage";
+import logo from "../../../assets/Logo/MainLogo.svg";
+import "./Navbar.scss";
 
 const Navbar = () => {
-  const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
+  const context = useContext(CommunityGardenContext);
+
+  const { isHamburgerMenuOpen, toggleHamburgerMenu } = context;
 
   return (
     <>
       {isHamburgerMenuOpen ? <MobileNav /> : ""}
-
       <header className="navbar">
         <div className="navbar__item">
           <Link to={routes.home}>
-            <img src={Logo} className="navbar__logo" alt="logo" />
+            <img src={logo} className="navbar__logo" alt="logo" />
           </Link>
         </div>
         <HamburgerMenuIcon
           isOpen={isHamburgerMenuOpen}
-          menuClicked={() => setHamburgerMenuOpen(!isHamburgerMenuOpen)}
+          menuClicked={toggleHamburgerMenu}
           width={28}
           height={28}
           strokeWidth={2}
@@ -32,7 +34,6 @@ const Navbar = () => {
           animationDuration={0.5}
           className="hamburgerMenuIcon"
         />
-
         <nav className="nav">
           <div className="nav__dropdown">
             <Link to={routes.articles}>
@@ -47,46 +48,40 @@ const Navbar = () => {
             </Link>
             <ul className="nav__content">
               <li>
-                <Link to={routes.gallery1} className="nav__content-link">
-                  Galeria 2018
+                <Link to={routes.galleryFlower} className="nav__content-link">
+                  Kwiaty
                 </Link>
               </li>
               <li>
-                <Link to={routes.gallery2} className="nav__content-link">
-                  Galeria 2019
+                <Link to={routes.galleryHarvest} className="nav__content-link">
+                  Zbiory
                 </Link>
               </li>
             </ul>
           </div>
           <div className="nav__dropdown">
-            <Link to={routes.regulations}>
-              <button className="nav__dropbtn nav-arrow-down nav-arrow-up ">
-                Dokumenty
-              </button>
+            <Link to={routes.documentManager}>
+              <button className="nav__dropbtn">Dokumenty</button>
             </Link>
-            <ul className="nav__content">
-              <li>
-                <Link to={routes.regulations} className="nav__content-link">
-                  Regulamin
-                </Link>
-              </li>
-              <li>
-                <Link to={routes.regulations} className="nav__content-link">
-                  Wnioski do pobrania
-                </Link>
-              </li>
-            </ul>
           </div>
           <div className="nav__dropdown">
-            <Link to={routes.regulations}>
+            <Link to={routes.informationManager}>
               <button className="nav__dropbtn nav-arrow-down nav-arrow-up ">
                 Informacje
               </button>
             </Link>
             <ul className="nav__content">
               <li>
-                <Link to={routes.regulations} className="nav__content-link">
-                  Opłaty
+                <Link to={routes.statute} className="nav__content-link">
+                  Regulamin i Opłaty
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={routes.organizationManager}
+                  className="nav__content-link"
+                >
+                  Organizacja Działki
                 </Link>
               </li>
             </ul>
