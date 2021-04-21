@@ -6,7 +6,7 @@
   align-items: center;
   height: 130px;
   width: 100%;
-  background-color:  map-get($colors, navbar);
+  background-color: map-get($colors, navbar);
   position: fixed;
   z-index: 999;
   padding: 0 30px;
@@ -17,10 +17,6 @@
 
   &__logo {
     width: 206px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    cursor: pointer;
-
     @media (max-width: 350px) {
       width: 157px;
     }
@@ -29,7 +25,7 @@
 
 .hamburgerMenuIcon {
   cursor: pointer;
-  
+
   @media (min-width: 1151px) {
     display: none;
   }
@@ -42,14 +38,11 @@
 
   &__dropdown {
     display: inline-block;
-    
-    
   }
 
   &__dropbtn {
     background-color: transparent;
-    padding-right: 6px;
-    padding-left: 15px;
+    padding: 0 6px 0 15px;
     font-size: map-get($font-sizes, s);
     border: none;
     text-transform: uppercase;
@@ -57,7 +50,6 @@
     font-family: $font-nav;
     font-weight: 600;
     outline: none;
-    cursor: pointer;
     margin: 53px 0;
     transition: all 0.5s ease;
     transition-duration: 0.5s;
@@ -106,7 +98,6 @@
     }
     .nav__dropbtn {
       color: map-get($font-colors, nav-hover);
-      cursor: pointer;
     }
     .nav-arrow-up {
       &:after {
@@ -117,4 +108,3 @@
     }
   }
 }
-
