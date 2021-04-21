@@ -1,18 +1,13 @@
 @import "../../scss/main.scss";
 
 .gallery-container {
-  background: url("https://cdn.pixabay.com/photo/2017/05/23/05/33/flower-2336287_1280.jpg")
-    no-repeat;
-  background-position: 100% 36%;
-  background-size: cover;
-  padding-top: 100px;
-  margin-top: 20px;
+  @include background-styles;
+  background-image: url("../../assets/Images/BackgroundImages/flower-2336287.jpg");
 }
 .gallery-items {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 60px;
   justify-content: space-evenly;
 
   &__title {
@@ -20,29 +15,20 @@
   }
   &__link {
     @include link;
-    @media (max-width: 237px) {
-      font-size: 15px;
-    }
   }
 }
 
 .gallery-content {
   display: flex;
   justify-content: space-evenly;
-  padding-right: 120px;
-  padding-left: 120px;
-  @media (max-width: 1306px) {
+  padding: 0 120px;
+  @media (max-width: 1350px) {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   .gallery-manager {
-    margin-bottom: 50px;
-
-    @media (max-width: 1306px) {
-      margin-bottom: 0;
-    }
     &__link {
       text-decoration: none;
     }
@@ -55,6 +41,7 @@
       position: relative;
       transition: transform 2s, filter 1.5s ease-in-out;
       filter: brightness(50%);
+      border-radius: $round-border;
 
       &:hover {
         cursor: pointer;
@@ -67,11 +54,11 @@
         filter: brightness(110%);
       }
 
-      @media (max-width: 508px) {
+      @media (max-width: 540px) {
         height: 250px;
         width: 300px;
       }
-      @media (max-width: 308px) {
+      @media (max-width: 360px) {
         height: 150px;
         width: 220px;
       }
@@ -82,13 +69,14 @@
       width: 500px;
       transform: scale(1);
       transition: transform 0.9s ease;
+      border-radius: inherit;
 
-      @media (max-width: 508px) {
+      @media (max-width: 540px) {
         height: 250px;
         width: 300px;
       }
 
-      @media (max-width: 308px) {
+      @media (max-width: 360px) {
         height: 150px;
         width: 220px;
       }
@@ -96,13 +84,8 @@
 
     &__title {
       text-align: center;
-      margin: 25px;
       @include article-title;
-
-      @media (max-width: 508px) {
-        font-size: 29px;
-        margin: 15px;
-      }
+      margin: map-get($margin, m) 0;
     }
   }
 }
