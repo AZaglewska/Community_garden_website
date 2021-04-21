@@ -1,69 +1,98 @@
-import React from "react";
+import React, { useContext } from "react";
+import CommunityGardenContext from "../../../context/context";
 import { Link } from "react-router-dom";
+import { routes } from "../../../routes/";
+import logoPzd from "../../../assets/Logo/logo-pzd.png";
 import "./MobileNav.scss";
-import LogoPzd from "../../../assets/Logo/logo-pzd.png";
-import MainLogo from "../../../assets/Logo/MainLogo.svg";
 
-const HamburgerMenu = () => {
+const MobileNav = () => {
+  const context = useContext(CommunityGardenContext);
+  const { closeHamburgerMenu } = context;
+
   return (
     <>
       <nav className="mobile-nav">
-        <Link to="/aktualności" className="mobile-nav__link">
+        <Link
+          to={routes.articles}
+          onClick={closeHamburgerMenu}
+          className="mobile-nav__link"
+        >
           Aktualności
         </Link>
-
         <div class="mobile-nav__dropdown">
-          <button class="mobile-nav__dropbtn">
+          <button class="mobile-nav__dropbtn" onClick={closeHamburgerMenu}>
             <Link
-              to="/galeria"
-              className="mobile-nav__link arrow-up arrow-down"
+              to={routes.gallery}
+              className="mobile-nav__link arrow-up arrow-down arrow-up"
             >
               Galeria
             </Link>
           </button>
           <div class="mobile-nav__dropdown-content">
-            <Link to="/galeria2018" className="mobile-nav__content-link">
-              Galeria 2018
+            <Link
+              to={routes.galleryFlower}
+              onClick={closeHamburgerMenu}
+              className="mobile-nav__content-link"
+            >
+              Kwiaty
             </Link>
-            <Link to="/galeria2019" className="mobile-nav__content-link">
-              Galeria 2019
+            <Link
+              to={routes.galleryHarvest}
+              onClick={closeHamburgerMenu}
+              className="mobile-nav__content-link"
+            >
+              Zbiory
             </Link>
           </div>
         </div>
-
+        <Link
+          to={routes.documentManager}
+          onClick={closeHamburgerMenu}
+          className="mobile-nav__link"
+        >
+          Dokumenty
+        </Link>
         <div class="mobile-nav__dropdown">
-          <button class="mobile-nav__dropbtn">
+          <button class="mobile-nav__dropbtn" onClick={closeHamburgerMenu}>
             <Link
-              to="/galeria"
+              to={routes.informationManager}
+              onClick={closeHamburgerMenu}
               className="mobile-nav__link arrow-up arrow-down"
             >
-              Regulamin
+              Informacje
             </Link>
           </button>
           <div class="mobile-nav__dropdown-content">
-            <Link to="/galeria2018" className="mobile-nav__content-link">
-              Regulamin 1
+            <Link
+              to={routes.statute}
+              onClick={closeHamburgerMenu}
+              className="mobile-nav__content-link"
+            >
+              Regulamin i Opłaty
             </Link>
-            <Link to="/galeria2019" className="mobile-nav__content-link">
-              Regulamin 2
+            <Link
+              to={routes.organizationManager}
+              onClick={closeHamburgerMenu}
+              className="mobile-nav__content-link"
+            >
+              Organizacja Działki
             </Link>
           </div>
         </div>
-        <Link to="/kontakt" className="mobile-nav__link">
-          Opłaty
-        </Link>
-
-        <Link to="/kontakt" className="mobile-nav__link">
+        <Link
+          to={routes.contact}
+          onClick={closeHamburgerMenu}
+          className="mobile-nav__link"
+        >
           Kontakt
         </Link>
-
         <div className="mobile-nav__logo-container">
-          <a href="http://pzd.pl/" target="_blank">
-            <img src={LogoPzd} className="mobile-nav__logo-pzd" />
+          <a href="http://pzd.pl/" rel="noreferrer" target="_blank">
+            <img src={logoPzd} alt="PZD" className="mobile-nav__logo-pzd" />
           </a>
         </div>
       </nav>
     </>
   );
 };
-export default HamburgerMenu;
+export default MobileNav;
