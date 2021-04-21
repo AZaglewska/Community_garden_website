@@ -2,10 +2,29 @@ $colors: (
   navbar: rgba(51, 51, 51, 0.959),
   navbar-hover: #434443,
   navbar-border: #444444,
-  footer: #666777,
+  footer-font: rgba(93, 95, 93, 0.432),
+  footer-line: #dbdbd9d0,
+  article-wrapper: rgba(240, 240, 240, 0.863),
+);
+
+$form-colors: (
+  form-error: rgba(190, 48, 48, 0.781),
+  form-text: rgba(22, 31, 16, 0.678),
+  form-alert: rgba(80, 141, 80, 0.753),
+  form-contact: rgba(165, 170, 164, 0.712),
+  form-border: rgba(124, 99, 99, 0.69),
 );
 
 $font-colors: (
   nav-color: #ffffffbb,
   nav-hover: #f9fcf7,
+  paragraph: #7c6363,
+  hover-effect: rgb(146, 172, 130),
+);
+
+$article-colors: (
+  art-title: rgb(10, 65, 8),
+  art-subtitle: rgb(4, 46, 2),
+  art-text: rgb(112, 114, 113),
+  art-date: #c8cacc,
 );
