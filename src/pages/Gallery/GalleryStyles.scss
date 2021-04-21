@@ -1,46 +1,21 @@
 @import "../../scss/main.scss";
 
 .gallery {
+  @include background-styles;
+  background-image: url("../../assets/Images/BackgroundImages/flower-2336287.jpg");
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 10px;
+
   &__elements {
     align-self: center;
-    margin: 80px 0 40px 0;
   }
   &__title {
-    margin-top: -100px;
     @include article-title;
-
-    @media (max-width: 370px) {
-      margin-top: -120px;
-      font-size: 40px;
-    }
-    @media (max-width: 289px) {
-      font-size: 32px;
-    }
-    @media (max-width: 203px) {
-      font-size: 20px;
-    }
   }
 
   &__link {
     @include link;
-    // margin-left: 40px;
-
-    @media (max-width: 370px) {
-      margin-left: 30px;
-    }
-    @media (max-width: 289px) {
-      font-size: 15px;
-      margin-left: 20px;
-    }
-
-    @media (max-width: 203px) {
-      font-size: 15px;
-      margin-left: -10px;
-    }
   }
 
   &__gif-container {
@@ -56,7 +31,7 @@
     margin: auto;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: map-get($margin, xl);
     @media (max-width: 1105px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -64,20 +39,10 @@
 
     @media (max-width: 740px) {
       grid-template-columns: repeat(2, 1fr);
-      margin-top: -50px;
     }
 
     @media (max-width: 400px) {
       grid-template-columns: repeat(1, 1fr);
-      margin-top: -50px;
-    }
-
-    @media (max-width: 370px) {
-      margin-top: -60px;
-    }
-
-    @media (max-width: 267px) {
-      margin-top: -95px;
     }
   }
   &__picture {
@@ -87,9 +52,8 @@
     width: 350px;
     overflow: hidden;
     display: inline-block;
-    color: white;
     position: relative;
-    background-color: white;
+    border-radius: $round-border;
 
     &:hover {
       cursor: pointer;
