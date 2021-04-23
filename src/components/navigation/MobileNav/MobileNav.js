@@ -19,8 +19,8 @@ const MobileNav = () => {
         >
           Aktualności
         </Link>
-        <div class="mobile-nav__dropdown">
-          <button class="mobile-nav__dropbtn" onClick={closeHamburgerMenu}>
+        <div className="mobile-nav__dropdown">
+          <button className="mobile-nav__dropbtn" onClick={closeHamburgerMenu}>
             <Link
               to={routes.gallery}
               className="mobile-nav__link arrow-up arrow-down arrow-up"
@@ -28,7 +28,7 @@ const MobileNav = () => {
               Galeria
             </Link>
           </button>
-          <div class="mobile-nav__dropdown-content">
+          <div className="mobile-nav__dropdown-content">
             <Link
               to={routes.galleryFlower}
               onClick={closeHamburgerMenu}
@@ -52,8 +52,8 @@ const MobileNav = () => {
         >
           Dokumenty
         </Link>
-        <div class="mobile-nav__dropdown">
-          <button class="mobile-nav__dropbtn" onClick={closeHamburgerMenu}>
+        <div className="mobile-nav__dropdown">
+          <button className="mobile-nav__dropbtn" onClick={closeHamburgerMenu}>
             <Link
               to={routes.informationManager}
               onClick={closeHamburgerMenu}
@@ -62,7 +62,7 @@ const MobileNav = () => {
               Informacje
             </Link>
           </button>
-          <div class="mobile-nav__dropdown-content">
+          <div className="mobile-nav__dropdown-content">
             <Link
               to={routes.statute}
               onClick={closeHamburgerMenu}
