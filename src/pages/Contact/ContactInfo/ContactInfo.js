@@ -38,9 +38,7 @@ const ContactInfo = () => {
           </div>
           <p className="contact-info__details bold-text">
             Konto Ogrodu:
-            <span>
-              <p>63 1090 1870 0000 1429 7475</p>
-            </span>
+            <span>63 1090 1870 0000 1429 7475</span>
           </p>
           <p className="contact-info__details bold-text">KRS: X</p>
           <p className="contact-info__details bold-text">NIP:X</p>
