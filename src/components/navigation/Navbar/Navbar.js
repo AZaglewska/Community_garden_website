@@ -4,21 +4,24 @@ import { Link } from "react-router-dom";
 import { routes } from "../../../routes/";
 import HamburgerMenuIcon from "react-hamburger-menu";
 import MobileNav from "../MobileNav/MobileNav";
-import DynamicImage from "../../DynamicImage/DynamicImage";
 import logo from "../../../assets/Logo/MainLogo.svg";
 import "./Navbar.scss";
 
 const Navbar = () => {
   const context = useContext(CommunityGardenContext);
 
-  const { isHamburgerMenuOpen, toggleHamburgerMenu } = context;
+  const {
+    isHamburgerMenuOpen,
+    toggleHamburgerMenu,
+    closeHamburgerMenu,
+  } = context;
 
   return (
     <>
       {isHamburgerMenuOpen ? <MobileNav /> : ""}
       <header className="navbar">
         <div className="navbar__item">
-          <Link to={routes.home}>
+          <Link to={routes.home} onClick={closeHamburgerMenu}>
             <img src={logo} className="navbar__logo" alt="logo" />
           </Link>
         </div>
@@ -93,7 +96,6 @@ const Navbar = () => {
           </div>
         </nav>
       </header>
-      <DynamicImage />
     </>
   );
 };
