@@ -1,12 +1,21 @@
 @import "../../scss/main.scss";
 
+.articles-background {
+  @include background-image;
+  background-image: url("../../assets/Images/NavbarImages/pexels-photo.jpg");
+}
 .articles-container {
-  @include background-styles;
+  @include article-background;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: map-get($margin, xl);
+  margin-bottom: map-get($margin, l);
+
+  &__elements {
+    @include title-container;
+  }
+
   &__title {
     @include article-title;
   }
@@ -21,7 +30,7 @@
 
   &__list {
     @include article-container;
-    margin: 40px 0;
+    margin-bottom: map-get($margin, m);
   }
 
   &__image {
@@ -38,7 +47,7 @@
   }
   &__button {
     @include article-button;
-    margin-top: map-get($margin, xl);
+    margin-top: map-get($margin, l);
   }
 
   &__date {
@@ -55,7 +64,7 @@
     border: 2px dashed map-get($article-colors, art-text);
     padding: 13px;
     border-radius: $button-border;
-
+    margin-top: map-get($margin, m);
     @media (max-width: 360px) {
       width: 250px;
     }
