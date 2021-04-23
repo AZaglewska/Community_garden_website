@@ -1,12 +1,19 @@
 @import "../../scss/main.scss";
 
+.contact-background {
+  @include background-image;
+  background-image: url("../../assets/Images/NavbarImages/pexels-photo-4080907.jpeg");
+}
 .contact {
+  @include background-styles;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @include background;
+  &__elements {
+    @include title-container;
+  }
   &__title {
     @include article-title;
   }
@@ -17,7 +24,7 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
-    margin: map-get($margin, l);
+    margin-bottom: map-get($margin, l);
     @media (max-width: 1151px) {
       flex-direction: column;
       justify-content: center;
