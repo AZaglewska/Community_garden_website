@@ -8,11 +8,15 @@ import "./Contact.scss";
 const Contact = () => {
   return (
     <>
+      <div className="contact-background" />
       <div className="contact">
-        <h1 className="contact__title">Kontakt</h1>
-        <Link to={routes.home} className="contact__link">
-          Powrót do strony głównej
-        </Link>
+        <div className="contact__elements">
+          <h1 className="contact__title">Kontakt</h1>
+          <Link to={routes.home} className="contact__link">
+            Powrót do strony głównej
+          </Link>
+        </div>
+
         <div className="contact__components">
           <ContactForm />
           <ContactInfo />
