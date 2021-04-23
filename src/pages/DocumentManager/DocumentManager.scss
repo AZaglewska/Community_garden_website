@@ -1,10 +1,19 @@
 @import "../../scss/main.scss";
 
+.document-background {
+  @include background-image;
+  background-image: url("../../assets/Images/NavbarImages/pexels-photo-1251397.jpeg");
+}
 .document {
   @include information-container;
   @include background-styles;
-  background-image: url("../../assets/Images/BackgroundImages/flower-2336287.jpg");
-
+  background-position: 100% 30%;
+  @media (max-width: 450px) {
+    background-position: 100% 100%;
+  }
+  &__elements {
+    @include title-container;
+  }
   &__title {
     @include article-title;
   }
