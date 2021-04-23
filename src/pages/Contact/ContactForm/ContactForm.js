@@ -10,42 +10,6 @@ const ContactForm = () => {
   const [errorAlert, setErrorAlert] = useState("");
   const [loadingAlert, setLoadingAlert] = useState(false);
 
-  const onSubmit = (e) => {
-    setLoadingAlert(true);
-  };
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE,
-        process.env.REACT_APP_EMAILJS_TEMPLATE,
-        e.target,
-        process.env.REACT_APP_EMAILJS_USER
-      )
-      .then((result) => {
-        console.log(result.text);
-        setSuccessAlert("Success");
-        setLoadingAlert(false);
-      })
-      .then(() => {
-        setTimeout(() => {
-          setSuccessAlert("");
-        }, 4000);
-      })
-
-      .catch((error) => {
-        setErrorAlert("Error");
-        setLoadingAlert(false);
-        setTimeout(() => {
-          setErrorAlert("");
-        }, 4000);
-      });
-
-    e.target.reset();
-  };
-
   const ValidationSchema = Yup.object().shape({
     name: Yup.string()
       .required("Pole imię nie może być puste")
@@ -66,18 +30,38 @@ const ContactForm = () => {
     <Formik
       initialValues={{ name: "", email: "", subject: "", message: "" }}
       validationSchema={ValidationSchema}
-      onSubmit={(values, { setSubmitting }, e) => {}}
+      onSubmit={(values, { resetForm }, e) => {
+        setLoadingAlert(true);
+
+        emailjs
+          .send(
+            process.env.REACT_APP_EMAILJS_SERVICE,
+            process.env.REACT_APP_EMAILJS_TEMPLATE,
+            values,
+            process.env.REACT_APP_EMAILJS_USER
+          )
+          .then((result) => {
+            setSuccessAlert("Success");
+            setLoadingAlert(false);
+          })
+          .then(() => {
+            setTimeout(() => {
+              setSuccessAlert("");
+            }, 4000);
+          })
+
+          .catch((error) => {
+            setErrorAlert("Error");
+            setLoadingAlert(false);
+            setTimeout(() => {
+              setErrorAlert("");
+            }, 4000);
+          });
+        resetForm();
+      }}
     >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-      }) => (
-        <Form className="contact-form" onSubmit={sendEmail}>
+      {({ values, handleChange, handleBlur, isSubmitting }) => (
+        <Form className="contact-form">
           <h1 className="contact-form__title">Skontaktuj się z nami</h1>
           <Field
             className="contact-form__input"
@@ -137,7 +121,6 @@ const ContactForm = () => {
             className="contact-form__button"
             type="submit"
             disabled={isSubmitting}
-            onClick={onSubmit}
           >
             {loadingAlert ? (
               <img
