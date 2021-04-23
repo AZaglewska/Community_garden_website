@@ -1,11 +1,20 @@
 @import "../../scss/main.scss";
 
+.article-background {
+  @include background-image;
+  background-image: url("../../assets/Images/NavbarImages/pexels-photo.jpg");
+}
 .full-article {
-  @include background-styles;
+  @include article-background;
+  background-position: 50% 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: map-get($margin, xl);
+
+  &__elements {
+    @include title-container;
+  }
+
   &__title {
     @include article-title;
   }
@@ -16,6 +25,7 @@
   &__wraper {
     @include article-container;
     width: 90%;
+    margin-bottom: map-get($margin, l);
   }
 
   &__image {
@@ -28,7 +38,7 @@
 
   &__content {
     @include article-text;
-    margin-top: 30px;
+    margin-top: map-get($margin, m);
     width: 90%;
     font-weight: 400;
   }
