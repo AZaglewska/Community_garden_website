@@ -46,18 +46,7 @@ const Footer = () => {
         </div>
         <div className="footer__details">
           <p>Created by</p>
-          <a
-            href="https://github.com/AZaglewska"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src={LogoAnn}
-              className="footer__logo"
-              alt="ann-logo"
-              rel="noreferrer"
-            />
-          </a>
+          <img src={LogoAnn} className="footer__logo" alt="Ann logo" />
         </div>
       </div>
     </>
