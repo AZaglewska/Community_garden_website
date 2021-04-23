@@ -17,11 +17,14 @@ const Articles = () => {
 
   return (
     <>
+      <div className="articles-background" />
       <div className="articles-container">
-        <h1 className="articles-container__title">Aktualności</h1>
-        <Link to={routes.home} className="articles-container__link">
-          Powrót do strony głównej
-        </Link>
+        <div className="articles-container__elements">
+          <h1 className="articles-container__title">Aktualności</h1>
+          <Link to={routes.home} className="articles-container__link">
+            Powrót do strony głównej
+          </Link>
+        </div>
 
         <ul key="allArticlesList" className="articles">
           {articles.map((article) => {
@@ -43,9 +46,9 @@ const Articles = () => {
                 <h3 className="articles__title">{articleTitle}</h3>
                 <Markdown
                   source={
-                    articleText.length < 20
+                    articleText.length < 380
                       ? articleText
-                      : `${articleText.substring(0, 200)}...`
+                      : `${articleText.substring(0, 300)}...`
                   }
                   className="articles__content"
                 />
