@@ -11,42 +11,51 @@ const DocumentManager = () => {
   const { pdfData } = context;
 
   return (
-    <div className="document">
-      <h1 className="document__title">Dokumenty</h1>
-      <Link to={routes.home} className="document__home-link">
-        Powrót do strony głównej
-      </Link>
-      <div className="document__wrapper">
-        <div className="document__image-wrapper">
-          <img className="document__image" src={gardenIcon} alt="garden icon" />
+    <>
+      <div className="document-background" />
+      <div className="document">
+        <div className="document__elements">
+          <h1 className="document__title">Dokumenty</h1>
+          <Link to={routes.home} className="document__home-link">
+            Powrót do strony głównej
+          </Link>
         </div>
-        <ul className="document__list">
-          {pdfData.map((pdfDataElement) => {
-            const { id, pdfName, pdfLink, pdfIcon } = pdfDataElement;
-            return (
-              <li key={id} className="document__element">
-                <div className="document__element-content">
-                  <img
-                    src={pdfIcon}
-                    className="document__element-icon"
-                    alt="pdf icon"
-                  />
-                  <p className="document__element-name">{pdfName}</p>
-                </div>
-                <a
-                  href={pdfLink}
-                  target="_blank"
-                  className="document__element-link"
-                  rel="noreferrer"
-                >
-                  .pdf
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="document__wrapper">
+          <div className="document__image-wrapper">
+            <img
+              className="document__image"
+              src={gardenIcon}
+              alt="garden icon"
+            />
+          </div>
+          <ul className="document__list">
+            {pdfData.map((pdfDataElement) => {
+              const { id, pdfName, pdfLink, pdfIcon } = pdfDataElement;
+              return (
+                <li key={id} className="document__element">
+                  <div className="document__element-content">
+                    <img
+                      src={pdfIcon}
+                      className="document__element-icon"
+                      alt="pdf icon"
+                    />
+                    <p className="document__element-name">{pdfName}</p>
+                  </div>
+                  <a
+                    href={pdfLink}
+                    target="_blank"
+                    className="document__element-link"
+                    rel="noreferrer"
+                  >
+                    .pdf
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
