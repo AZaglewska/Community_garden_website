@@ -1,14 +1,12 @@
 @import "../../scss/main.scss";
 
-.gallery-container {
-  @include background-styles;
-  background-image: url("../../assets/Images/BackgroundImages/flower-2336287.jpg");
+.gallery-background {
+  @include background-image;
+  background-image: url("../../assets/Images/NavbarImages/pexels-photo-1144033.jpeg");
 }
-.gallery-items {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-evenly;
+
+.gallery-elements {
+  @include title-container;
 
   &__title {
     @include article-title;
@@ -19,16 +17,22 @@
 }
 
 .gallery-content {
+  @include background-styles;
+  background-position: 100% 20%;
   display: flex;
   justify-content: space-evenly;
-  padding: 0 120px;
-  @media (max-width: 1350px) {
+  @media (max-width: 450px) {
+    background-position: 100% 100%;
+  }
+  @media (max-width: 1151px) {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-position: 100% 100%;
   }
 
   .gallery-manager {
+    margin-bottom: map-get($margin, l);
     &__link {
       text-decoration: none;
     }
@@ -42,7 +46,6 @@
       transition: transform 2s, filter 1.5s ease-in-out;
       filter: brightness(50%);
       border-radius: $round-border;
-
       &:hover {
         cursor: pointer;
       }
@@ -83,9 +86,9 @@
     }
 
     &__title {
-      text-align: center;
       @include article-title;
-      margin: map-get($margin, m) 0;
+      text-align: center;
+      margin-top: map-get($margin, s);
     }
   }
 }
