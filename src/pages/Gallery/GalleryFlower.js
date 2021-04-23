@@ -27,6 +27,7 @@ const GalleryFlower = () => {
 
   return (
     <>
+      <div className="gallery-styles-background" />
       <div className="gallery">
         <div className="gallery__elements">
           <h1 className="gallery__title">Kwiaty</h1>

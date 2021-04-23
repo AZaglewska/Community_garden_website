@@ -1,5 +1,9 @@
 @import "../../scss/main.scss";
 
+.gallery-styles-background {
+  @include background-image;
+  background-image: url("../../assets/Images/NavbarImages/pexels-photo-1675211.jpeg");
+}
 .gallery {
   @include background-styles;
   background-image: url("../../assets/Images/BackgroundImages/flower-2336287.jpg");
@@ -8,7 +12,7 @@
   flex-direction: column;
 
   &__elements {
-    align-self: center;
+    @include title-container;
   }
   &__title {
     @include article-title;
@@ -31,7 +35,7 @@
     margin: auto;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
-    margin-bottom: map-get($margin, xl);
+    margin-bottom: map-get($margin, l);
     @media (max-width: 1105px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
