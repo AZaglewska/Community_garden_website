@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Community gardens website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview:
 
-## Available Scripts
+A simple dynamic website created mainly for informational purposes for Rod Warszawianka in Warsaw (Community gardens). This project uses React.js, React-Router-dom for navigation, Contentful CMS for dynamically updating the data (updating pictures, adding new posts, viewing and downloading pdf files).This site also uses SCSS for layout styles. Moreover, users can leave a message via contact form created in Formik and Emailjs.
 
-In the project directory, you can run:
+## Live demo
 
-### `npm start`
+Live demo:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![gif](https://github.com/AZaglewska/Community_garden_website/blob/main/src/assets/Gif/Peek2021-04-24-17-49.gif)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Main Tech stack:
 
-### `npm test`
+- React.js,
+- React-Router-dom,
+- React ContextAPI,
+- Contentful CMS,
+- Emailjs,
+- Formik, Yup
+- SCSS,
+- RWD
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting started:
 
-### `npm run build`
+These instructions will get you a copy of the project up and running on your local machine
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installing:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+First of all clone the repository to your local machine.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Check if you have node and npm installed. Run this command in your terminal:
 
-### `npm run eject`
+- node -v
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To confirm that you have npm installed you can run this command in your terminal:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- npm -v
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+If you checked your node and npm run a development server with:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- npm start
 
-## Learn More
+Browser will automatically open localhost:3000/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Website Inspiration:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://svoje.pl/
+http://sobieskiego93.pl/
 
-### Code Splitting
+## Photos and Icons I used:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+All of the photos and Icons were taken from:
+https://www.pexels.com/pl-pl/,
+https://pixabay.com/pl/,
+https://www.flaticon.com/
+and they are free for commercial use.
 
-### Analyzing the Bundle Size
+Logos are created by me using Figma.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+if you have any problems to run the project, feel free to contact me by e-mail:
+web.annazaglewska@gmail.com
