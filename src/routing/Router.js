@@ -1,18 +1,19 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MainTemplate from "../templates/MainTemplate";
-import { routes } from "../routes";
 import Home from "../pages/Home/Home";
 import Articles from "../pages/Articles/Articles";
 import FullArticle from "../pages/FullArticle/FullArticle";
 import GalleryManager from "../pages/Gallery/GalleryManager";
-import GalleryOne from "../pages/Gallery/GalleryOne";
-import GallerySecond from "../pages/Gallery/GallerySecond";
-import Regulations from "../pages/InformationPages/RegulationsPages/Regulations";
+import GalleryFlower from "../pages/Gallery/GalleryFlower";
+import GalleryHarvest from "../pages/Gallery/GalleryHarvest";
+import InformationManager from "../pages/InformationPages/InformationManager/InformationManager";
+import Statute from "../pages/InformationPages/StatutePages/Statute";
 import OrganizationManager from "../pages/InformationPages/OrganizationPages/OrganizationManager";
 import OrganizationElement from "../pages/InformationPages/OrganizationPages/OrganizationElement";
-import DocumentManager from "../pages/Document/DocumentManager";
+import DocumentManager from "../pages/DocumentManager/DocumentManager";
 import Contact from "../pages/Contact/Contact";
+import { routes } from "../routes";
 
 const Router = () => {
   return (
@@ -23,9 +24,13 @@ const Router = () => {
           <Route path={routes.articles} component={Articles} />
           <Route path={routes.fullArticle} component={FullArticle} />
           <Route path={routes.gallery} component={GalleryManager} />
-          <Route path={routes.gallery1} component={GalleryOne} />
-          <Route path={routes.gallery2} component={GallerySecond} />
-          <Route path={routes.regulations} component={Regulations} />
+          <Route path={routes.galleryFlower} component={GalleryFlower} />
+          <Route path={routes.galleryHarvest} component={GalleryHarvest} />
+          <Route
+            path={routes.informationManager}
+            component={InformationManager}
+          />
+          <Route path={routes.statute} component={Statute} />
           <Route
             path={routes.organizationManager}
             component={OrganizationManager}
