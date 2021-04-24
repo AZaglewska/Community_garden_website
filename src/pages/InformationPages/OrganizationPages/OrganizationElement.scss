@@ -1,25 +1,24 @@
 @import "../../../scss/main.scss";
 
+.organization-element-background {
+  @include background-image;
+  background-image: url("../../../assets/Images/NavbarImages/pexels-photo-212324.jpeg");
+}
 .organization-element {
-  background: url("https://cdn.pixabay.com/photo/2017/05/23/05/33/flower-2336287_1280.jpg")
-    no-repeat;
-  background-size: cover;
-  background-position: 100% 100%;
+  @include background-styles;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-size: 100%;
-  //   margin-top: -50px;
 
   &__wrapper {
     background-color: map-get($colors, article-wrapper);
     display: flex;
     align-items: center;
     flex-direction: column;
-    border-radius: 10px;
+    border-radius: $round-border;
     width: 90%;
-    margin: 40px 0;
+    margin: 40px 0 30px 0;
     padding: 30px 0;
   }
   &__image {
@@ -28,11 +27,11 @@
 
   &__title {
     @include article-subtitle;
-    margin-bottom: 20px;
   }
 
   &__link {
     @include link;
+    margin: 10px 0;
   }
   &__subtitle {
     color: map-get($font-colors, paragraph);
@@ -49,6 +48,6 @@
 
   &__text {
     @include article-text;
-    margin-left: 10px;
+    margin-left: map-get($margin, s);
   }
 }
