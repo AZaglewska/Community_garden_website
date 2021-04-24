@@ -4,7 +4,7 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes";
-import gif from "../../assets/Gif/Rolling-1s-81px.svg";
+import gif from "../../assets/Spinners/Rolling-1s-81px.svg";
 import "./GalleryStyles.scss";
 
 const GalleryFlower = () => {
