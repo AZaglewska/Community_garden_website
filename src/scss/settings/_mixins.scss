@@ -1,38 +1,83 @@
 //general mixins
 
+@mixin background-image {
+  height: 500px;
+  background-image: url("../../assets//Images/NavbarImages/pexels-photo-334978.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  margin-top: -100px;
+  background-position: 50% 65%;
+  top: 80px;
+  right: 0;
+  bottom: 50px;
+  left: 0;
+  left: -65px;
+  top: 0;
+  box-shadow: 25px 25px 50px 0 rgb(10, 10, 10) inset,
+    -25px -25px 50px 0 rgb(24, 22, 22) inset;
+  -moz-box-shadow: 0px 7px 20px -2px rgba(90, 99, 89, 1);
+  box-shadow: 0px 7px 20px -2px rgba(90, 99, 89, 1);
+  @media (max-width: 450px) {
+    height: 430px;
+  }
+}
+
+@mixin article-background {
+  background-image: url("../../assets/Images/BackgroundImages/flower-2342706.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
 @mixin background-styles {
   background: url("https://cdn.pixabay.com/photo/2017/05/23/05/33/flower-2336287_1280.jpg")
     no-repeat;
   background-size: cover;
-  background-position: 100%;
-  height: 100vh;
+  background-position: 100% 100%;
+  @media (max-width: 450px) {
+    background-size: 100%;
+  }
+}
+
+@mixin title-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px 0;
 }
 
 //form mixins
 
-@mixin border-radius {
-  border-radius: 56px 56px 56px 56px;
-  -moz-border-radius: 56px 56px 56px 56px;
-  -webkit-border-radius: 56px 56px 56px 56px;
-  border: 0px solid #000000;
-}
-
 @mixin border-shadow {
-  -webkit-box-shadow: 0px -1px 26px 17px rgba(79, 84, 74, 0.22);
-  -moz-box-shadow: 0px -1px 26px 17px rgba(79, 84, 74, 0.22);
-  box-shadow: 0px -1px 26px 17px rgba(79, 84, 74, 0.22);
+  -webkit-box-shadow: 1px 2px 10px 6px rgba(168, 167, 167, 0.479);
+  box-shadow: 1px 2px 10px 6px rgba(168, 167, 167, 0.479);
 }
 
-@mixin input-shadow {
-  -webkit-box-shadow: -1px 0px 38px -12px rgba(69, 65, 69, 1);
-  -moz-box-shadow: -1px 0px 38px -12px rgba(69, 65, 69, 1);
-  box-shadow: -1px 0px 38px -12px rgba(69, 65, 69, 1);
+@mixin form-title {
+  font-family: $article-title;
+  color: map-get($article-colors, art-title);
+  font-size: map-get($font-sizes, l);
+  font-weight: 700;
+  text-align: center;
+  width: 90%;
+  margin-top: map-get($margin, l);
+
+  @media (max-width: 450px) {
+    font-size: map-get($font-sizes, m);
+  }
 }
 
-@mixin contact-font {
-  font-family: $font-base;
-  font-size: 23px;
-  color: rgba(22, 31, 16, 0.678);
+@mixin form-alert {
+  text-align: center;
+  font-family: $font-alt;
+  color: map-get($form-colors, form-alert);
+  font-size: map-get($font-sizes, s);
+  font-weight: 600;
+  border: 2px dotted map-get($form-colors, form-alert);
+  width: 200px;
+  margin: 20px 0;
+  border-radius: $button-border;
 }
 
 //icons mixins
@@ -60,26 +105,39 @@
 
 //articles mixins
 
+@mixin article-container {
+  background-color: map-get($colors, article-wrapper);
+  border-radius: $round-border;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @mixin article-title {
   font-family: $article-title;
-  color: rgb(10, 65, 8);
-  font-size:  map-get($font-sizes, xl);
+  color: map-get($article-colors, art-title);
+  font-size: map-get($font-sizes, xl);
   font-weight: 700;
 
-  @media (max-width: 450px) { 
+  @media (max-width: 450px) {
     font-size: 35px;
-    margin: auto;
-    text-align: center; }
+    text-align: center;
+  }
 }
 
 @mixin article-subtitle {
   font-family: $article-subtitle;
-  font-size:  map-get($font-sizes, m);
-  color: rgb(4, 46, 2);
+  font-size: map-get($font-sizes, l);
+  color: map-get($article-colors, art-subtitle);
   font-weight: 600;
+  text-align: center;
+  margin-top: 25px;
 
   @media (max-width: 450px) {
-   font-size: map-get($font-sizes, s)
+    font-size: map-get($font-sizes, m);
+  }
+  @media (max-width: 360px) {
+    font-size: map-get($font-sizes, s);
   }
 }
 
@@ -87,27 +145,60 @@
   font-family: $font-alt;
   font-size: map-get($font-sizes, m);
   font-weight: 400;
-  color: rgb(112, 114, 113);
+  color: map-get($article-colors, art-text);
+  margin-top: 30px;
 
   @media (max-width: 450px) {
-    font-size:  map-get($font-sizes, s)
+    font-size: map-get($font-sizes, ss);
   }
 
+  @media (max-width: 360px) {
+    font-size: map-get($font-sizes, s);
+  }
+}
+
+@mixin article-date {
+  font-family: $font-alt;
+  align-self: flex-start;
+  color: map-get($article-colors, art-date);
+  font-size: map-get($font-sizes, s);
+  margin: 30px 10px 30px;
+
+  &:before {
+    content: "";
+    background-image: url("../../assets/Icons/time.svg");
+    @include icon-before;
+    height: 20px;
+    width: 15px;
+    background-size: 100%;
+  }
+}
+
+@mixin article-image {
+  height: 70px;
+  margin-top: 30px;
+  @media (max-width: 360px) {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 @mixin article-button {
   text-transform: uppercase;
   background: rgb(7, 59, 5);
   color: #fff;
-  padding: 15px;
+  padding: 18px;
   width: 150px;
-  font-family: open sans;
+  font-family: $font-base;
   font-weight: bold;
   font-style: normal;
   text-align: center;
   margin-top: 1rem;
   border: 1px solid rgb(4, 46, 2);
   cursor: pointer;
+  transition: 1s ease;
+  border-radius: $button-border;
+  outline: none;
 
   &:hover {
     color: rgb(2, 24, 1);
@@ -116,14 +207,109 @@
   }
 }
 
+//information mixins
+
+@mixin information-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin information-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  border-radius: 10px;
+  padding: 40px 0;
+  margin-bottom: map-get($margin, l);
+  background-color: map-get($colors, article-wrapper);
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 748px) {
+    align-items: center;
+  }
+}
+
+@mixin information-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+@mixin information-image {
+  width: 60%;
+  @media (max-width: 900px) {
+    margin-bottom: 50px;
+    width: 40%;
+  }
+
+  @media (max-width: 748px) {
+    width: 200px;
+  }
+
+  @media (max-width: 450px) {
+    width: 150px;
+  }
+}
+@mixin information-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  flex: 1;
+  margin-top: 20px 0;
+}
+@mixin information-element {
+  margin-bottom: 20px;
+}
+@mixin information-element-link {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  font-family: $font-alt;
+  font-size: map-get($font-sizes, m);
+  color: map-get($article-colors, art-text);
+  transition: 0.5s ease;
+  &:hover {
+    color: map-get($font-colors, hover-effect);
+  }
+  @media (max-width: 450px) {
+    font-size: map-get($font-sizes, ss);
+  }
+}
+@mixin information-element-icon {
+  width: 35px;
+  margin-right: 15px;
+}
+
+@mixin paragraph {
+  text-align: center;
+  margin: 20px 0;
+  color: map-get($font-colors, paragraph);
+  font-family: $font-alt;
+  font-size: map-get($font-sizes, m);
+  font-weight: 400;
+
+  @media (max-width: 450px) {
+    font-size: map-get($font-sizes, ss);
+  }
+}
+
 //link mixins
 
 @mixin link {
   font-family: $font-alt;
-  font-size: 20px;
+  font-size: map-get($font-sizes, s);
   text-decoration: none;
   color: rgb(95, 93, 93);
-
+  @media (max-width: 360px) {
+    font-size: 17px;
+  }
   &:hover {
     font-weight: bold;
   }
