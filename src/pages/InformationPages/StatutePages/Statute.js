@@ -11,11 +11,14 @@ const Statute = () => {
 
   return (
     <>
+      <div className="statute-background" />
       <div className="statute">
-        <h1 className="statute__title">Regulamin i Opłaty</h1>
-        <Link to={routes.informationManager} className="statute__link">
-          Powrót do informacji
-        </Link>
+        <div className="statute__elements">
+          <h1 className="statute__title">Regulamin i Opłaty</h1>
+          <Link to={routes.informationManager} className="statute__link">
+            Powrót do informacji
+          </Link>
+        </div>
         <div className="statute__wrapper">
           <ul className="statute__list">
             {statuteData.map((statuteDataElement) => {
@@ -27,7 +30,11 @@ const Statute = () => {
               } = statuteDataElement;
               return (
                 <li key={id} className="statute__element">
-                  <img src={statuteIcon} className="statute__icon" />
+                  <img
+                    src={statuteIcon}
+                    className="statute__icon"
+                    alt="statute"
+                  />
                   <h3 className="statute__subtitle">{statuteName}</h3>
                   <a
                     href={statuteFile}
