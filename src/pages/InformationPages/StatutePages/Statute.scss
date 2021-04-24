@@ -1,7 +1,20 @@
 @import "../../../scss/main.scss";
 
+.statute-background {
+  @include background-image;
+  background-image: url("../../../assets/Images/NavbarImages/strawberry-1531216_1280.webp");
+}
 .statute {
   @include information-container;
+  @include background-styles;
+  background-position: 100% 30%;
+  @media (max-width: 450px) {
+    background-position: 100% 100%;
+  }
+
+  &__elements {
+    @include title-container;
+  }
 
   &__title {
     @include article-title;
@@ -45,7 +58,7 @@
     font-size: map-get($font-sizes, ss);
     border: 1px solid map-get($article-colors, art-text);
     padding: 4px 13px;
-    border-radius: 10px;
+    border-radius: $round-border;
 
     &:hover {
       border-color: map-get($font-colors, hover-effect);
