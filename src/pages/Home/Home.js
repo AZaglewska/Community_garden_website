@@ -7,6 +7,7 @@ const Home = () => {
   return (
     <>
       <div className="home">
+        <div className="home-background" />
         <div className="home__wraper">
           <h1 className="home__title">
             Rodzinny Ogród Działkowy <span>Warszawianka</span>
