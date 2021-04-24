@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import spinner from "../../../assets/Gif/Rolling-1s-62px.svg";
+import spinner from "../../../assets/Spinners/Rolling-1s-62px.svg";
 import "./ContactForm.scss";
 
 const ContactForm = () => {
