@@ -1,0 +1,73 @@
+@import "../../../scss/main.scss";
+
+.information-background {
+  @include background-image;
+  background-image: url("../../../assets/Images/NavbarImages/pexels-photo-3220350.jpeg");
+}
+.information {
+  @include information-container;
+  @include background-styles;
+
+  &__container {
+    @include title-container;
+  }
+  &__title {
+    @include article-title;
+  }
+
+  &__home-link {
+    @include link;
+  }
+  &__wrapper {
+    @include information-wrapper;
+  }
+
+  &__elements {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+    margin-bottom: map-get($margin, m);
+    font-family: $font-alt;
+    font-size: map-get($font-sizes, ss);
+    color: map-get($article-colors, art-text);
+    @media (max-width: 360px) {
+      font-size: map-get($font-sizes, s);
+    }
+  }
+
+  &__icon {
+    @include information-element-icon;
+    @media (max-width: 450px) {
+      width: 28px;
+    }
+  }
+
+  &__subtitle {
+    @include paragraph;
+    @media (max-width: 900px) {
+      margin: 5px 0 10px;
+    }
+  }
+
+  &__text {
+    margin-bottom: map-get($margin, s);
+  }
+
+  &__link {
+    @include information-element-link;
+    margin-right: 0px;
+  }
+}
