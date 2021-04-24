@@ -6,7 +6,7 @@ A simple dynamic website created mainly for informational purposes for Rod Warsz
 
 ## Live demo
 
-Live demo:
+Live demo: https://rod-warszawianka.netlify.app/
 
 ![gif](https://github.com/AZaglewska/Community_garden_website/blob/main/src/assets/Gif/Peek2021-04-24-17-49.gif)
 
@@ -45,15 +45,17 @@ Browser will automatically open localhost:3000/
 
 ## Website Inspiration:
 
-https://svoje.pl/
-http://sobieskiego93.pl/
+- https://svoje.pl/,
+- http://sobieskiego93.pl/
 
 ## Photos and Icons I used:
 
 All of the photos and Icons were taken from:
-https://www.pexels.com/pl-pl/,
-https://pixabay.com/pl/,
-https://www.flaticon.com/
+
+- https://www.pexels.com/pl-pl/,
+- https://pixabay.com/pl/,
+- https://www.flaticon.com/
+
 and they are free for commercial use.
 
 Logos are created by me using Figma.
