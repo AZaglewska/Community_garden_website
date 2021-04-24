@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import Router from "../routing/Router";
 import CommunityGardenContext from "../context/context";
 import client from "../client/Client";
+import { pictureTypes } from "../types/pictureTypes";
+import { contentfulContentTypes } from "../types/contentfulContentTypes";
+import { articlesTypes } from "../types/articlesTypes";
 
 const Root = () => {
   const [homeArticles, setHomeArticles] = useState([]);
@@ -12,60 +15,68 @@ const Root = () => {
   const [picturesFlowers, setPicturesFlowers] = useState([]);
   const [picturesHarvest, setPicturesHarvest] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [articleLimit, setArticleLimit] = useState(4);
+  const [articleLimit, setArticleLimit] = useState(2);
   const [articlesTotal, setArticlesTotal] = useState(0);
+  const [showArrowTop, setShowArrowTop] = useState(false);
+  const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
 
-  const getPicturesHarvestData = (dataPictures) => {
-    let pictures = dataPictures.map((dataPicture) => {
+  const toggleHamburgerMenu = () => {
+    setHamburgerMenuOpen(!isHamburgerMenuOpen);
+  };
+
+  const closeHamburgerMenu = () => {
+    setHamburgerMenuOpen(false);
+  };
+
+  const showAndHideArrowTop = () => {
+    if (!showArrowTop && window.pageYOffset > 400) {
+      setShowArrowTop(true);
+    } else if (showArrowTop && window.pageYOffset <= 400) {
+      setShowArrowTop(false);
+    }
+  };
+
+  window.addEventListener("scroll", showAndHideArrowTop);
+
+  const getPictureData = (pictureType, dataPictures) => {
+    const pictures = dataPictures.map((dataPicture) => {
       const { id } = dataPicture.sys;
-
-      const image = dataPicture.fields.harvestPicture[0].fields.file.url;
+      const image = dataPicture.fields[pictureType][0].fields.file.url;
 
       const picture = { id, image };
       return picture;
     });
 
-    setPicturesHarvest(pictures);
+    if (pictureType === pictureTypes.harvest) {
+      setPicturesHarvest([...pictures]);
+    } else {
+      setPicturesFlowers([...pictures]);
+    }
   };
 
   useEffect(() => {
     client
       .getEntries({
-        content_type: "rodPicturesHarvest",
+        content_type: contentfulContentTypes.rodPicturesHarvest,
       })
       .then((response) => {
-        getPicturesHarvestData(response.items);
-        console.log(response.items);
+        getPictureData(pictureTypes.harvest, response.items);
       });
   }, []);
 
-  const getPicturesFlowersData = (dataPictures) => {
-    let pictures = dataPictures.map((dataPicture) => {
-      const { id } = dataPicture.sys;
-
-      const image = dataPicture.fields.flowerPicture[0].fields.file.url;
-
-      const picture = { id, image };
-      return picture;
-    });
-
-    setPicturesFlowers(pictures);
-  };
-
   useEffect(() => {
     client
       .getEntries({
-        content_type: "rodPicturesFlowers",
+        content_type: contentfulContentTypes.rodPicturesFlowers,
       })
       .then((response) => {
         setLoading(true);
-        getPicturesFlowersData(response.items);
-        console.log(response.items);
+        getPictureData(pictureTypes.flower, response.items);
       });
   }, []);
 
   const getStatuteFile = (statuteDataElements) => {
-    let mappedStatuteData = statuteDataElements.map((statuteDataElement) => {
+    const mappedStatuteData = statuteDataElements.map((statuteDataElement) => {
       const { id } = statuteDataElement.sys;
 
       const statuteFile = statuteDataElement.fields.statuteFile.fields.file.url;
@@ -75,22 +86,21 @@ const Root = () => {
       const statute = { id, statuteFile, statuteName, statuteIcon };
       return statute;
     });
-    setStatuteData(mappedStatuteData);
+    setStatuteData([...mappedStatuteData]);
   };
 
   useEffect(() => {
     client
       .getEntries({
-        content_type: "rodStatute",
+        content_type: contentfulContentTypes.rodStatute,
       })
       .then((response) => {
         getStatuteFile(response.items);
-        console.log(response.items);
       });
   }, []);
 
   const getPdfFile = (pdfDataElements) => {
-    let mappedPdfs = pdfDataElements.map((pdfDataElement) => {
+    const mappedPdfs = pdfDataElements.map((pdfDataElement) => {
       const { id } = pdfDataElement.sys;
 
       const pdfLink = pdfDataElement.fields.pdfFile.fields.file.url;
@@ -100,140 +110,98 @@ const Root = () => {
       const pdf = { id, pdfName, pdfLink, pdfIcon };
       return pdf;
     });
-    setPdfData(mappedPdfs);
+    setPdfData([...mappedPdfs]);
   };
 
   useEffect(() => {
     client
       .getEntries({
-        content_type: "rodPdf",
+        content_type: contentfulContentTypes.rodPdf,
       })
       .then((response) => {
         getPdfFile(response.items);
-        console.log(response.items);
       });
   }, []);
 
-  const getInfoData = (InfoDataArticles) => {
-    let mappedInfoArticles = InfoDataArticles.map((InfoDataArticle) => {
-      const { id } = InfoDataArticle.sys;
+  const getInfoData = (infoDataArticles) => {
+    const mappedInfoArticles = infoDataArticles.map((infoDataArticle) => {
+      const { id } = infoDataArticle.sys;
 
-      const infoTitle = InfoDataArticle.fields.infoTitle;
-      const infoImage = InfoDataArticle.fields.infoImage.fields.file.url;
-      const infoSections = InfoDataArticle.fields.infoSections;
-      const infoContentFirst = InfoDataArticle.fields.infoContentFirst;
-      const infoContentSecond = InfoDataArticle.fields.infoContentSecond;
-      const infoContentThird = InfoDataArticle.fields.infoContentThird;
-      const infoContentFourth = InfoDataArticle.fields.infoContentFourth;
-      const infoContentFifth = InfoDataArticle.fields.infoContentFifth;
-      const infoContentSixth = InfoDataArticle.fields.infoContentSixth;
-      const infoContentSeventh = InfoDataArticle.fields.infoContentSeventh;
+      const infoImage = infoDataArticle.fields.infoImage.fields.file.url;
 
       const infoData = {
         id,
-        infoTitle,
+        ...infoDataArticle.fields,
         infoImage,
-        infoSections,
-        infoContentFirst,
-        infoContentSecond,
-        infoContentThird,
-        infoContentFourth,
-        infoContentFifth,
-        infoContentSixth,
-        infoContentSeventh,
       };
       return infoData;
     });
 
-    setInfoArticles(mappedInfoArticles);
+    setInfoArticles([...mappedInfoArticles]);
   };
 
   useEffect(() => {
     client
       .getEntries({
-        content_type: "rodInfo",
+        content_type: contentfulContentTypes.rodInfo,
       })
 
       .then((response) => {
         getInfoData(response.items);
-        console.log(response);
       });
   }, []);
-
-  const getHomeArticlesData = (dataArticles) => {
-    let articlesData = dataArticles.map((dataArticle) => {
-      const { id } = dataArticle.sys;
-
-      const articleTitle = dataArticle.fields.articleTitle;
-      const articleImage = dataArticle.fields.articleImage.fields.file.url;
-      const articleDate = dataArticle.fields.articlesDate;
-      const articleContent = [...dataArticle.fields.articles.content];
-
-      const article = {
-        id,
-        articleTitle,
-        articleImage,
-        articleDate,
-        articleContent,
-      };
-      return article;
-    });
-
-    setHomeArticles(articlesData);
-  };
 
   useEffect(() => {
     client
       .getEntries({
-        content_type: "rodArticles",
+        content_type: contentfulContentTypes.rodArticles,
         limit: 2,
       })
 
       .then((response) => {
-        getHomeArticlesData(response.items);
+        getArticlesData(response.items, articlesTypes.home);
       });
   }, []);
 
-  const getAllArticlesData = (dataArticles) => {
-    let articlesData = dataArticles.map((dataArticle) => {
+  const getArticlesData = (dataArticles, articlesType) => {
+    const articlesData = dataArticles.map((dataArticle) => {
       const { id } = dataArticle.sys;
 
-      const articleTitle = dataArticle.fields.articleTitle;
       const articleImage = dataArticle.fields.articleImage.fields.file.url;
-      const articleDate = dataArticle.fields.articlesDate;
-      const articleContent = [...dataArticle.fields.articles.content];
-
       const article = {
         id,
-        articleTitle,
+        ...dataArticle.fields,
         articleImage,
-        articleDate,
-        articleContent,
       };
       return article;
     });
 
-    setArticles(articlesData);
+    if (articlesType === articlesTypes.home) {
+      setHomeArticles([...articlesData]);
+    } else {
+      setArticles([...articlesData]);
+    }
   };
+
   useEffect(() => {
     client
       .getEntries({
-        content_type: "rodArticles",
+        content_type: contentfulContentTypes.rodArticles,
         limit: articleLimit,
       })
 
       .then((response) => {
-        getAllArticlesData(response.items);
+        getArticlesData(response.items, articlesTypes.all);
         setArticlesTotal(response.total);
       });
   }, [articleLimit]);
 
   const getMoreArticles = () => {
-    setArticleLimit(articleLimit + 4);
+    setArticleLimit(articleLimit + 2);
   };
 
-  const getLessArticles = () => {
-    setArticleLimit(articleLimit - 4);
+  const hideMoreArticles = () => {
+    setArticleLimit(2);
   };
 
   return (
@@ -242,8 +210,6 @@ const Root = () => {
         value={{
           homeArticles,
           articles,
-          getMoreArticles,
-          getLessArticles,
           articlesTotal,
           infoArticles,
           pdfData,
@@ -251,6 +217,12 @@ const Root = () => {
           picturesFlowers,
           picturesHarvest,
           loading,
+          showArrowTop,
+          isHamburgerMenuOpen,
+          getMoreArticles,
+          hideMoreArticles,
+          toggleHamburgerMenu,
+          closeHamburgerMenu,
         }}
       >
         <Router />
