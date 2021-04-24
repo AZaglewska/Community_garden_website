@@ -1,7 +1,20 @@
 @import "../../../scss/main.scss";
 
+.organization-background {
+  @include background-image;
+  background-image: url("../../../assets/Images/NavbarImages/pexels-photo-212324.jpeg");
+}
 .organization {
   @include information-container;
+  @include background-styles;
+  background-position: 100% 30%;
+  @media (max-width: 450px) {
+    background-position: 100% 100%;
+  }
+  &__elements {
+    @include title-container;
+  }
+
   &__title {
     @include article-title;
   }
