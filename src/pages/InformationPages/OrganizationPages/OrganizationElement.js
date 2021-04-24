@@ -1,8 +1,8 @@
 import React from "react";
-import "./OrganizationElement.scss";
+import * as Markdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { routes } from "../../../routes";
-import * as Markdown from "react-markdown";
+import "./OrganizationElement.scss";
 
 const OrganizationElement = (props) => {
   const {
@@ -19,9 +19,14 @@ const OrganizationElement = (props) => {
   } = props.location.state;
   return (
     <>
+      <div className="organization-element-background" />
       <div className="organization-element">
         <div className="organization-element__wrapper">
-          <img className="organization-element__image" src={infoImage} />
+          <img
+            className="organization-element__image"
+            src={infoImage}
+            alt="information icon"
+          />
           <h1 className="organization-element__title">{infoTitle}</h1>
           <Link
             to={routes.organizationManager}
