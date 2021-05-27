@@ -39,8 +39,9 @@
   &__content {
     @include article-text;
     margin-top: map-get($margin, m);
-    width: 90%;
+    width: 80%;
     font-weight: 400;
+    margin-left: 15px;
   }
 
   &__date {

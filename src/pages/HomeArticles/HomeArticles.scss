@@ -51,7 +51,8 @@
   &__content {
     @include article-text;
     margin-top: map-get($font-sizes, m);
-    width: 90%;
+    width: 80%;
+    margin-left: 15px;
   }
   &__button {
     @include article-button;

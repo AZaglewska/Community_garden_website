@@ -86,9 +86,13 @@
     color: map-get($article-colors, art-text);
     width: 98%;
   }
+  &__list-elements {
+    margin: 15px 0;
+  }
 
   &__elements {
-    text-align: center;
+    // text-align: center;
+    margin-left: 30px;
   }
   &__subtitle {
     text-align: center;
@@ -102,8 +106,8 @@
   }
 
   span {
-    text-decoration: underline;
     margin-right: 8px;
+    font-weight: 700;
   }
 
   &__smaller-text {

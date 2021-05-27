@@ -36,6 +36,7 @@
     @include article-text;
     flex: 3;
     margin-right: map-get($font-sizes, xl);
+
     @media (max-width: 1026px) {
       width: 95%;
       margin: auto;
