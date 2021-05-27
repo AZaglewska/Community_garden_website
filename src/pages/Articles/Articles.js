@@ -8,12 +8,8 @@ import "./Articles.scss";
 const Articles = () => {
   const context = useContext(CommunityGardenContext);
 
-  const {
-    articles,
-    getMoreArticles,
-    hideMoreArticles,
-    articlesTotal,
-  } = context;
+  const { articles, getMoreArticles, hideMoreArticles, articlesTotal } =
+    context;
 
   return (
     <>
@@ -28,13 +24,8 @@ const Articles = () => {
 
         <ul key="allArticlesList" className="articles">
           {articles.map((article) => {
-            const {
-              id,
-              articleImage,
-              articleTitle,
-              articleDate,
-              articleText,
-            } = article;
+            const { id, articleImage, articleTitle, articleDate, articleText } =
+              article;
 
             return (
               <li key={id} className="articles__list">
@@ -43,6 +34,7 @@ const Articles = () => {
                   alt="articleImage"
                   className="articles__image"
                 />
+
                 <h3 className="articles__title">{articleTitle}</h3>
                 <Markdown
                   source={

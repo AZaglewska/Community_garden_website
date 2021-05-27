@@ -43,7 +43,7 @@
 
   &__content {
     @include article-text;
-    width: 90%;
+    width: 80%;
   }
   &__button {
     @include article-button;
