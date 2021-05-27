@@ -168,6 +168,7 @@ const Root = () => {
       const { id } = dataArticle.sys;
 
       const articleImage = dataArticle.fields.articleImage.fields.file.url;
+
       const article = {
         id,
         ...dataArticle.fields,
