@@ -38,10 +38,9 @@ const ContactInfo = () => {
           </div>
           <p className="contact-info__details bold-text">
             Konto Ogrodu:
-            <span>63 1090 1870 0000 1429 7475</span>
+            <span>63 1090 1870 0000 0001 1429 7475</span>
           </p>
-          <p className="contact-info__details bold-text">KRS: X</p>
-          <p className="contact-info__details bold-text">NIP:X</p>
+          <p className="contact-info__details bold-text">NIP: 5213046419</p>
         </div>
         <div className="contact-info__image">
           <img src={sunIcon} alt="leaf" />
