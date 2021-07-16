@@ -45,8 +45,15 @@ const Footer = () => {
           <img className="footer__image " src={imageFlower} alt="flower" />
         </div>
         <div className="footer__details">
-          <p>Created by</p>
-          <img src={LogoAnn} className="footer__logo" alt="Ann logo" />
+          <p>© 2021 ROD Warszawianka. All rights reserved</p>
+          <p>Developed and powered by</p>
+          <a
+            href="https://ari-ann.netlify.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={LogoAnn} className="footer__logo" alt="Ann logo" />
+          </a>
         </div>
       </div>
     </>

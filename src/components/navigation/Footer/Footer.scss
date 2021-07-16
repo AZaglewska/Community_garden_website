@@ -70,15 +70,23 @@
     align-items: center;
     border-top: 1px solid map-get($colors, footer-line);
     width: inherit;
+    padding-top: map-get($margin, s);
+    color: map-get($article-colors, art-text);
 
     p {
-      margin-top: map-get($margin, s);
+      margin-top: 5px;
+      @media (max-width: 320px) {
+        font-size: map-get($font-sizes, xs);
+      }
     }
   }
   &__logo {
-    width: 60px;
+    width: 90px;
     height: 60px;
-    margin-top: -10px;
+    margin-top: -5px;
+    @media (max-width: 320px) {
+      width: 80px;
+    }
   }
 }
 
