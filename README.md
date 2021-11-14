@@ -2,11 +2,11 @@
 
 ## Overview:
 
-A simple dynamic website created mainly for informational purposes for Rod Warszawianka in Warsaw (Community gardens). This project uses React.js, React-Router-dom for navigation, Contentful CMS for dynamically updating the data (updating pictures, adding new posts, viewing and downloading pdf files).This site also uses SCSS for layout styles. Moreover, users can leave a message via contact form created in Formik and Emailjs.
+A simple dynamic website created mainly for informational purposes for Rod Warszawianka in Warsaw (Community gardens). This project uses React.js, React-Router-dom for navigation, Contentful CMS for dynamically updating the data (updating pictures, adding new posts, viewing and downloading pdf files).This site also uses SCSS for layout styles. Moreover, users can leave a message via contact form created in Formik and Email.js.
 
-## Live demo
+## Official site
 
-Live demo: https://rod-warszawianka.netlify.app/
+https://rodwarszawianka.pl/
 
 ![gif](https://github.com/AZaglewska/Community_garden_website/blob/main/src/assets/Gif/Peek2021-04-24-17-49.gif)
 
