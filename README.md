@@ -6,7 +6,7 @@ A simple dynamic website created mainly for informational purposes for Rod Warsz
 
 ![gif](https://github.com/AZaglewska/Community_garden_website/blob/main/src/assets/Gif/Peek2021-04-24-17-49.gif)
 
-## Official site
+## Official site:
 
 https://rodwarszawianka.pl/
 
