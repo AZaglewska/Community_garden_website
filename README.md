@@ -64,4 +64,3 @@ This site has been created by Anna Zaglewska : https://ariann.netlify.app/
 
 if you have any problems to run the project, feel free to contact me by e-mail:
 web.annazaglewska@gmail.com
-d
