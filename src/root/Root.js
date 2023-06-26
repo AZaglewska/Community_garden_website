@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Router from "../routing/Router";
-import CommunityGardenContext from "../context/context";
-import client from "../client/Client";
-import { pictureTypes } from "../types/pictureTypes";
-import { contentfulContentTypes } from "../types/contentfulContentTypes";
-import { articlesTypes } from "../types/articlesTypes";
+import React, { useState, useEffect } from 'react';
+import Router from '../routing/Router';
+import CommunityGardenContext from '../context/context';
+import client from '../client/Client';
+import { pictureTypes } from '../types/pictureTypes';
+import { contentfulContentTypes } from '../types/contentfulContentTypes';
+import { articlesTypes } from '../types/articlesTypes';
 
 const Root = () => {
   const [homeArticles, setHomeArticles] = useState([]);
@@ -19,6 +19,7 @@ const Root = () => {
   const [articlesTotal, setArticlesTotal] = useState(0);
   const [showArrowTop, setShowArrowTop] = useState(false);
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
+  const [feeData, setFeeData] = useState([]);
 
   const toggleHamburgerMenu = () => {
     setHamburgerMenuOpen(!isHamburgerMenuOpen);
@@ -36,7 +37,7 @@ const Root = () => {
     }
   };
 
-  window.addEventListener("scroll", showAndHideArrowTop);
+  window.addEventListener('scroll', showAndHideArrowTop);
 
   const getPictureData = (pictureType, dataPictures) => {
     const pictures = dataPictures.map((dataPicture) => {
@@ -72,6 +73,27 @@ const Root = () => {
       .then((response) => {
         setLoading(true);
         getPictureData(pictureTypes.flower, response.items);
+      });
+  }, []);
+
+  const getFeeData = (feeDataElements) => {
+    const mappedFeeData = feeDataElements.map((feeDataElement) => {
+      const { id } = feeDataElement.sys;
+
+      const feeData = { id, ...feeDataElement.fields };
+      return feeData;
+    });
+    setFeeData([...mappedFeeData]);
+  };
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: contentfulContentTypes.rodFees,
+      })
+      .then((response) => {
+        console.log(response.items);
+        getFeeData(response.items);
       });
   }, []);
 
@@ -217,6 +239,7 @@ const Root = () => {
           statuteData,
           picturesFlowers,
           picturesHarvest,
+          feeData,
           loading,
           showArrowTop,
           isHamburgerMenuOpen,

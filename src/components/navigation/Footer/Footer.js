@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { routes } from "../../../routes/";
-import LogoAnn from "../../../assets/Logo/AnnLogo.svg";
-import LogoFooter from "../../../assets/Logo/LogoFooter.svg";
-import LogoPzd from "../../../assets/Logo/logo-pzd.png";
-import imageDandelion from "../../../assets/Images/FooterImages/dandelion-seeds-2483277_1920.png";
-import imageFlower from "../../../assets/Images/FooterImages/rose-732361_1280.png";
-import "./Footer.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { routes } from '../../../routes/';
+import LogoAnn from '../../../assets/Logo/AnnLogo.svg';
+import LogoFooter from '../../../assets/Logo/LogoFooter.svg';
+import LogoPzd from '../../../assets/Logo/logo-pzd.png';
+import imageDandelion from '../../../assets/Images/FooterImages/dandelion-seeds-2483277_1920.png';
+import imageFlower from '../../../assets/Images/FooterImages/rose-732361_1280.png';
+import './Footer.scss';
 
 const Footer = () => {
   return (
@@ -48,7 +48,7 @@ const Footer = () => {
           <p>© 2021 ROD Warszawianka. All rights reserved</p>
           <p>Developed and powered by</p>
           <a
-            href="https://ari-ann.netlify.app/"
+            href="https://ariann.netlify.app/"
             target="_blank"
             rel="noreferrer"
           >

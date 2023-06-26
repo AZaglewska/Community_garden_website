@@ -78,3 +78,42 @@
     }
   }
 }
+
+.article-docTitle {
+  @include paragraph;
+  @media (max-width: 900px) {
+    margin: 5px 0 10px;
+  }
+}
+
+.article-doc {
+  width: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  &__element {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    @include paragraph;
+    color: map-get($article-colors, art-text);
+    font-size: map-get($font-sizes, s);
+    font-weight: 400;
+  }
+
+  &__doc {
+    @include information-element-link;
+    font-size: map-get($font-sizes, s);
+    border: 1px solid map-get($article-colors, art-text);
+    padding: 3px 10px;
+    border-radius: $round-border;
+    align-self: center;
+
+    &:hover {
+      border-color: map-get($font-colors, hover-effect);
+    }
+  }
+}

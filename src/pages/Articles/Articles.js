@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import CommunityGardenContext from "../../context/context";
-import * as Markdown from "react-markdown";
-import { Link } from "react-router-dom";
-import { routes } from "../../routes";
-import "./Articles.scss";
+import React, { useContext } from 'react';
+import CommunityGardenContext from '../../context/context';
+import * as Markdown from 'react-markdown';
+import { Link } from 'react-router-dom';
+import { routes } from '../../routes';
+import './Articles.scss';
 
 const Articles = () => {
   const context = useContext(CommunityGardenContext);
@@ -24,8 +24,14 @@ const Articles = () => {
 
         <ul key="allArticlesList" className="articles">
           {articles.map((article) => {
-            const { id, articleImage, articleTitle, articleDate, articleText } =
-              article;
+            const {
+              id,
+              articleImage,
+              articleTitle,
+              articleDate,
+              articleText,
+              articleDoc,
+            } = article;
 
             return (
               <li key={id} className="articles__list">
@@ -34,24 +40,57 @@ const Articles = () => {
                   alt="articleImage"
                   className="articles__image"
                 />
-
                 <h3 className="articles__title">{articleTitle}</h3>
-                <Markdown
-                  source={
-                    articleText.length < 380
-                      ? articleText
-                      : `${articleText.substring(0, 300)}...`
-                  }
-                  className="articles__content"
-                />
+                {articleText.length < 600 ? (
+                  <>
+                    <Markdown
+                      source={articleText}
+                      className="articles__content"
+                    />
+                    {articleDoc ? (
+                      <>
+                        <h3 className="article-docTitle">Dokumenty:</h3>
+                        <ul className="article-doc">
+                          {articleDoc?.map((x) => {
+                            const fileName = x.fields.file.fileName;
+                            const fileUrl = x.fields.file.url;
+                            return (
+                              <li className="article-doc__element">
+                                <h3 className="article-doc__title">
+                                  {fileName}
+                                </h3>
+                                <a
+                                  href={fileUrl}
+                                  target="_blank"
+                                  className="article-doc__doc"
+                                  rel="noreferrer"
+                                >
+                                  {fileName.substr(fileName.indexOf('.'))}
+                                </a>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </>
+                    ) : (
+                      ''
+                    )}
+                  </>
+                ) : (
+                  <Markdown
+                    source={`${articleText.substring(0, 300)}...`}
+                    className="articles__content"
+                  />
+                )}
                 <Link
                   to={{
-                    pathname: `/artykuł/${articleTitle.replace(/\s/g, "")}`,
+                    pathname: `/artykuł/${articleTitle.replace(/\s/g, '')}`,
                     state: {
                       image: articleImage,
                       title: articleTitle,
                       date: articleDate,
                       text: articleText,
+                      doc: articleDoc,
                     },
                   }}
                 >
@@ -69,7 +108,7 @@ const Articles = () => {
             <p className="articles-addons__info">Nie ma więcej artykułów</p>
 
             {articlesTotal === 2 ? (
-              ""
+              ''
             ) : (
               <button
                 onClick={hideMoreArticles}

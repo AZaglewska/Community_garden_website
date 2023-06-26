@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import CommunityGardenContext from "../../context/context";
-import * as Markdown from "react-markdown";
-import { Link } from "react-router-dom";
-import { routes } from "../../routes/index";
-import "./HomeArticles.scss";
+import React, { useContext } from 'react';
+import CommunityGardenContext from '../../context/context';
+import * as Markdown from 'react-markdown';
+import { Link } from 'react-router-dom';
+import { routes } from '../../routes/index';
+import './HomeArticles.scss';
 
 const HomeArticles = () => {
   const context = useContext(CommunityGardenContext);
@@ -21,6 +21,7 @@ const HomeArticles = () => {
               articleText,
               articleDate,
               id,
+              articleDoc,
             } = article;
 
             return (
@@ -32,23 +33,56 @@ const HomeArticles = () => {
                 />
 
                 <h3 className="home-article__title">{articleTitle}</h3>
-                <Markdown
-                  source={
-                    articleText.length < 20
-                      ? articleText
-                      : `${articleText.substring(0, 200)}...`
-                  }
-                  className="home-article__content"
-                />
-
+                {articleText.length < 300 ? (
+                  <>
+                    <Markdown
+                      source={articleText}
+                      className="articles__content"
+                    />
+                    {articleDoc ? (
+                      <>
+                        <h3 className="article-docTitle">Dokumenty:</h3>
+                        <ul className="article-doc">
+                          {articleDoc?.map((x) => {
+                            const fileName = x.fields.file.fileName;
+                            const fileUrl = x.fields.file.url;
+                            return (
+                              <li className="article-doc__element">
+                                <h3 className="article-doc__title">
+                                  {fileName}
+                                </h3>
+                                <a
+                                  href={fileUrl}
+                                  target="_blank"
+                                  className="article-doc__doc"
+                                  rel="noreferrer"
+                                >
+                                  {fileName.substr(fileName.indexOf('.'))}
+                                </a>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </>
+                    ) : (
+                      ''
+                    )}
+                  </>
+                ) : (
+                  <Markdown
+                    source={`${articleText.substring(0, 300)}...`}
+                    className="articles__content"
+                  />
+                )}
                 <Link
                   to={{
-                    pathname: `/artykuł/${articleTitle.replace(/\s/g, "")}`,
+                    pathname: `/artykuł/${articleTitle.replace(/\s/g, '')}`,
                     state: {
                       image: articleImage,
                       title: articleTitle,
                       text: articleText,
                       date: articleDate,
+                      doc: articleDoc,
                     },
                   }}
                 >
